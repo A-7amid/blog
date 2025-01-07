@@ -1,18 +1,12 @@
-import React, { createContext } from "react";
 import { Link } from "react-router-dom";
 
-export const HeadContext = createContext();
-
-const Blog = ({ head, img, date, words }) => {
+const Blog = ({ title, img, date, content }) => {
   return (
-    <Link to="/blog" className="flex bg-white rounded-lg py-8 p-5">
-      {/* <HeadContext.Provider value={head}>
-        <Content />
-      </HeadContext.Provider> */}
+    <Link to={`/blog`} className="flex bg-white rounded-lg py-8 p-5">
       <div className="flex flex-col w-full gap-4">
-        <h3 className="font-extrabold text-xl">{head}</h3>
+        <h3 className="font-extrabold text-xl">{title}</h3>
 
-        <p className="opacity-60 font-medium text-sm">{words}</p>
+        <p className="opacity-60 font-medium text-sm">{content}</p>
 
         <div className="flex gap-5 items-end h-full">
           <div className="flex items-end">
@@ -25,7 +19,7 @@ const Blog = ({ head, img, date, words }) => {
 
               <span className="items-center opacity-60 font-medium text-sm flex">
                 <svg
-                  className="size-[16px] mr-3"
+                  className="size-[16px] mr-2"
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
                   y="0px"

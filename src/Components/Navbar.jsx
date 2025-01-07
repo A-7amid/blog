@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <div className="flex items-center px-3">
-        <a href="/" className="font-medium text-2xl">
-          VoxMonia
-        </a>
+        <Link to="/">
+          <h3 className="font-medium text-2xl">VoxMonia</h3>
+        </Link>
 
         <div className="flex justify-end w-full">
           <label className="relative flex justify-center">

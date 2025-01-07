@@ -1,17 +1,22 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import Navbar from "./Components/Navbar";
 import Blogs from "./Components/Blogs";
-import MakeBlog from "./MakeBlog";
+import MakePost from "./MakePost";
+
+const TitleContext = React.createContext();
 
 const App = () => {
+  const [title, setTitle] = useState();
   return (
-    <div className="bg-slate-100 flex flex-col">
-      <Navbar />
-      <Blogs />
-      <div className="absolute right-32 top-44">
-        <MakeBlog />
+    <TitleContext.Provider value={{ title, setTitle }}>
+      <div className="bg-slate-100 flex flex-col">
+        <Navbar />
+        <Blogs />
+        <div className="absolute right-32 top-44">
+          <MakePost />
+        </div>
       </div>
-    </div>
+    </TitleContext.Provider>
   );
 };
 
