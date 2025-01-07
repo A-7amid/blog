@@ -9,7 +9,7 @@ const App = () => {
   const [title, setTitle] = useState();
   return (
     <TitleContext.Provider value={{ title, setTitle }}>
-      <div className="bg-slate-100 flex flex-col">
+      <div className="bg-slate-100 h-screen flex flex-col">
         <Navbar />
         <Blogs />
         <div className="absolute right-32 top-44">
