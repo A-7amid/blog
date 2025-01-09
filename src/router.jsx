@@ -1,10 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Content from "./routes/Content";
-import Post from "./routes/Post";
+import NotFoundPage from "./routes/NotFoundPage";
+import NewPost from "./routes/NewPost";
+import PostContent from "./routes/PostContent";
 
 export const router = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: `/blog`, element: <Content /> },
-  { path: "/make-post", element: <Post /> },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFoundPage />,
+  },
+  { path: "/post/:postTitle/:mainContent", element: <PostContent /> },
+  { path: "/new", element: <NewPost /> },
 ]);

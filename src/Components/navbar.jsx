@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const navbar = () => {
   return (
-    <>
-      <div className="flex items-center px-3">
+    <div>
+      <div className="flex items-center px-3 py-2">
         <Link to="/">
-          <h3 className="font-medium text-2xl">VoxMonia</h3>
+          <h3 className="font-extrabold text-3xl ml-2 opacity-80 marck-font">
+            VoxMonia
+          </h3>
         </Link>
-
-        <div className="flex justify-end w-full">
+        <div className="flex justify-end w-full items-center">
+          <MakePost />
+        </div>
+        <div className="flex justify-end ">
           <label className="relative flex justify-center">
             <svg
-              className="size-5 absolute opacity-60 left-5 top-7"
+              className="size-5 absolute left-5 top-4 opacity-60"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -25,14 +29,24 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search"
-              className="focus:outline-blue-600 m-2 font-medium px-3 py-4 rounded-md pl-10"
+              className="focus:outline-blue-600 shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 m-2 font-medium px-3 py-1 rounded-md pl-10 placeholder-black placeholder-opacity-50"
             />
           </label>
         </div>
       </div>
-      <h1 className="h-[1px] bg-black opacity-10"></h1>
-    </>
+      <h1 className="h-[1px] bg-black opacity-5"></h1>
+    </div>
   );
 };
 
-export default Navbar;
+const MakePost = () => {
+  return (
+    <Link to="/new">
+      <button className="flex hover:underline font-medium px-4 py-1 pb-[6px] rounded-md hover:text-white text-blue-700 border-blue-700 border-2 bg-transparent hover:bg-blue-700 ">
+        Create Post
+      </button>
+    </Link>
+  );
+};
+
+export default navbar;

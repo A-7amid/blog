@@ -1,18 +1,16 @@
 import React, { createContext, StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
 import { router } from "./router.jsx";
 import { RouterProvider } from "react-router-dom";
-
-const PostProvider = React.createContext();
+import { PostsProvider } from "./context/provider.context.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <PostProvider.Provider>
+  <PostsProvider>
     <StrictMode>
       <RouterProvider router={router} />
     </StrictMode>
-  </PostProvider.Provider>
+  </PostsProvider>
 );
 
-export default PostProvider;
+export default PostsProvider;
