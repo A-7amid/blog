@@ -1,41 +1,41 @@
 export const dummyData = [
   {
-    title: "Understanding React Hooks",
-    img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    title: "I Built an Open-Source Code Snippet Collection",
+    img: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpzrug7epj03o80crn2yw.png",
     date: "Wed Jan 6 2024",
-    content: "React Hooks are functions that let you use state.",
-    mainContent:
-      "React Hooks 🎣 are functions that let you use state and other React features without writing a class. They make it easier to share logic between components and manage state in a more functional way. Understanding hooks is essential for modern React development. 🚀",
+    content:
+      "If you've ever found yourself repeatedly Googling the same code snippets, then SnipNest is something you'll find very useful. It's a place to share snippets with ease. Why SnipNest?The idea for SnipNest came from my own frustrations. As a developer, I often need quick solutions to problems I've solved a dozen times before. While there are plenty of resources out there, I didn't find one that would fit my preference. I wanted a structured, easy-to-use, and searchable collection of snippets. That's how SnipNest was born.",
     likes: 120,
     comments: 15,
   },
   {
-    title: "A Guide to JavaScript Promises",
-    img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    title: "GitHub Branching Name Best Practices",
+    img: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fthepracticaldev.s3.amazonaws.com%2Fi%2F1y3lik9xrzvrvb8pyeem.png",
     date: "Fri Sep 2 2024",
-    content: "Work with JS promises.",
-    mainContent:
-      "JavaScript promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They are a powerful way to handle asynchronous code, providing a cleaner and more manageable approach compared to traditional callback functions. Understanding promises is essential for modern JavaScript development. 🌟",
+    content:
+      "On GitHub, branching is a crucial component of collaborative software development. In addition to keeping your project organized, using consistent and unambiguous branch naming conventions makes it easier for team members to quickly comprehend each branch's purpose. Some best practices for naming branches in your GitHub projects are listed below. 1. Use Prefixes to Indicate PurposePrefixing branch names based on their purpose helps categorize and identify them quickly. Here are some common prefixes:feature/: For new features or functionalities.bugfix/: For fixing bugs in the code.hotfix/: For urgent patches, usually applied to production.design/: For user interface or user experience updates.refactor/: For improving code structure without changing functionality.test/: For writing or improving automated tests.doc/: For documentation updates.",
     likes: 95,
     comments: 10,
   },
   {
-    title: "Mastering CSS Grid Layout",
-    img: "https://imgs.search.brave.com/iiARtb3IgN0kDJb0PIKrIJhvuw6IEk4GcYhb3FcUG8I/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9hYnN0cmFjdC1t/b2Rlcm4tdGVjaC1w/cm9ncmFtbWluZy1j/b2RlLXNjcmVlbi1k/ZXZlbG9wZXItYy1w/cm9ncmFtbWluZy1s/YW5ndWFnZS1jb21w/dXRlci1zY3JpcHRf/NTA1MzUzLTkxLmpw/Zz9zZW10PWFpc19o/eWJyaWQ",
+    title: "22 Unique Developer Resources You Should Explore",
+    img: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvf8ovyktac8r7pbj1c7v.jpg",
     date: "Thu Jan 14 2024",
-    content: "Advanced CSS Grid techniques.",
-    mainContent:
-      "CSS Grid Layout is a powerful layout system available in CSS. It allows you to create complex layouts easily and with more flexibility than traditional methods. Mastering CSS Grid is essential for creating modern, responsive web designs. 🖼️",
+    content: `In the ever-evolving world of development, staying updated with innovative tools and resources can supercharge your workflow and help you build smarter, faster, and better applications. 🌐✨ Below, I've curated a list of 22 lesser-known yet incredibly useful developer tools. From design inspiration to debugging assistance, these resources have got you covered! 1. Carbon 🖼️
+URL: https://carbon.now.sh
+What it does: Carbon lets you turn your code snippets into stunning visuals, perfect for sharing or embedding in blogs and presentations.
+Why it's great: Make your code aesthetically pleasing and shareable! Highlight your solutions or showcase your work effortlessly.
+
+None`,
     likes: 150,
     comments: 20,
   },
   {
-    title: "Introduction to TypeScript",
-    img: "https://imgs.search.brave.com/0WS_7h6XYkCNf-bGSTUHg6KFabTaM9Go5VLMhny67gk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jb21wdXRlci1t/b25pdG9yLXdpdGgt/d29yZC1jb2RlLXNj/cmVlbl8xMTMyMTg0/LTQ4MTQwLmpwZz9z/ZW10PWFpc19oeWJy/aWQ",
+    title: "🚀 TypeScript Fundamentals: A Complete Guide for Beginners",
+    img: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0x1qi3prdxb99ri13geu.png",
     date: "Tue Oct 22 2024",
-    content: "Intro to TypeScript.",
-    mainContent:
-      "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It offers static typing, classes, and interfaces, making it easier to write and maintain large-scale applications. Learning TypeScript can greatly improve your JavaScript development experience. 💻",
+    content:
+      "📖 What is TypeScript? TypeScript is a strongly typed, object-oriented programming language that builds on JavaScript by adding static types. ⚠️ Limitations of JavaScript Dynamically Typed Language: We can put a string or number or array or object on the same variable which isn’t a feasible thing. Also checking the type errors in large-scale apps is very difficult.",
     likes: 110,
     comments: 12,
   },

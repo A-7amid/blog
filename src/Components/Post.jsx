@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const Blog = ({ title, img, date, content, likes, comments }) => {
+const Post = ({ title, img, date, content, likes, comments }) => {
   return (
-    <div className="flex bg-white rounded-lg py-8 p-5">
-      <div className="flex flex-col w-full gap-4">
+    <div className="flex bg-white rounded-lg py-8 p-5 sm:-space-x-20">
+      <div className="flex flex-col gap-4">
         <h3 className="font-extrabold text-2xl opacity-85">{title}</h3>
 
         <p className="opacity-50 font-medium text-sm">{content}</p>
@@ -37,19 +37,16 @@ const Blog = ({ title, img, date, content, likes, comments }) => {
           </div>
         </div>
       </div>
-
-      <div className="flex items-end ">
+      <div className="flex items-end justify-end sm:w-full">
         <img
-          src={
-            img ||
-            `https://imgs.search.brave.com/wxrKj_I6lcr5qSXRB9j1_Vp0OD6lk7hvsywsbfJQnNw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9jb21w/dXRlci1zY3JlZW4t/c2hvd2luZy1jb2Rl/LXNlY3VyaXR5LTk5/NDg1MDg0LmpwZw`
-          }
-          alt="topic"
-          className="w-56 h-36"
+          src={img}
+          alt="post image"
+          className="
+       sm:block sm:w-60 md:w-72 hidden"
         />
       </div>
     </div>
   );
 };
 
-export default Blog;
+export default Post;

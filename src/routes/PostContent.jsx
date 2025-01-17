@@ -1,27 +1,36 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../Components/navbar";
+import Navbar from "../Components/Navbar";
+import { usePosts } from "../context/provider.context";
+import { useEffect } from "react";
 
 const PostContent = () => {
+  const { posts } = usePosts();
+
   const params = useParams();
-  console.log(params);
+
+  for (let post of posts) {
+    if (post.title == params.postTitle) {
+      var content = post.content;
+      var image = post.img;
+    }
+    continue;
+  }
 
   return (
     <div>
       <Navbar />
-      <div className="bg-white flex flex-col items-center mx-auto w-2/3 mb-24 mt-4">
+      <div className="bg-white flex flex-col items-center mx-auto md:w-2/3 mb-24 mt-4">
         <img
-          src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F009pdi0m6bizhp9alf58.png"
-          alt="img"
-          className="overflow-hidden mb-7 rounded-t-lg"
+          src={image}
+          alt="image"
+          className="overflow-hidden mb-10 md:rounded-t-lg "
         />
-        <div className=" mx-16">
-          <h1 className="text-black text-5xl font-semibold opacity-90 mb-10 ">
+        <div className="md:mx-auto mx-4">
+          <h1 className="text-black text-3xl font-bold sm:text-4xl md:text-5xl md:font-semibold opacity-90 mb-6 ">
             {params.postTitle}
           </h1>
 
-          <p className="text-xl font-normal roboto-mono">
-            {params.mainContent}
-          </p>
+          <p className="text-xl font-normal roboto-mono">{content}</p>
         </div>
       </div>
     </div>
