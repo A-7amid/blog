@@ -26,7 +26,7 @@ const Navbar = () => {
     <div>
       <div className="flex items-center w-full px-3 py-2 mt-3 sm:mt-0">
         <Link to="/">
-          <h3 className="font-extrabold lg:text-3xl lg:ml-2 text-3xl opacity-80 marck-font">
+          <h3 className="font-extrabold lg:ml-2 text-3xl opacity-80 marck-font">
             VoxOmonia
           </h3>
         </Link>
@@ -48,9 +48,9 @@ const Navbar = () => {
               onKeyUp={(e) => handleSearch(e)}
               type="text"
               placeholder="Search"
-              className="focus:outline-blue-600 md:w-full w-44 shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal px-3 py-[6px] rounded-md pl-10 placeholder-black placeholder-opacity-50 placeholder:font-semibold"
+              className="focus:outline-blue-600 md:w-96 w-44 shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal px-3 py-[6px] rounded-md pl-10 placeholder-black placeholder-opacity-50 placeholder:font-semibold"
             />
-            <span className="hidden md:top-[10px] md:right-1 md:absolute md:block opacity-60 font-bold text-sm">
+            <span className="hidden md:top-[10px] md:right-5 md:absolute md:block opacity-60 font-bold text-sm">
               Ctrl K
             </span>
           </label>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="items-center md:translate-y-0 lg:translate-x-80 lg:-mr-14 sm:block hidden">
+          <div className="items-center md:translate-y-0 lg:translate-x-[290px] lg:-mr-14 sm:block hidden">
             <MakePost />
           </div>
         </div>
