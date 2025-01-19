@@ -8,15 +8,17 @@ import React, {
 import { usePosts } from "../context/provider.context";
 import { Link, useHref, useNavigate } from "react-router-dom";
 import Dropzone, { useDropzone } from "react-dropzone";
+import Footer from "../Components/Footer";
 
 const NewPost = () => {
-  const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
   const [files, setFiles] = useState([]);
 
   const inputRef = useRef();
 
   const { createPost } = usePosts();
+
+  const navigate = useNavigate();
 
   const onDrop = useCallback((acceptedFiles) => {
     setFiles(
@@ -145,6 +147,8 @@ const NewPost = () => {
           </button>
         </div>
       </form>
+
+      <Footer />
     </div>
   );
 };
@@ -155,10 +159,11 @@ const Navbar = () => {
       <div className="flex items-center px-3 py-[16px] bg-zinc-100">
         <Link to="/">
           <h3 className="font-extrabold text-3xl ml-2 sm:ml-16 md:ml-2 opacity-80 marck-font">
-            VoxOmonia
+            VoxOmnia
           </h3>
         </Link>
       </div>
+
       <h1 className="h-[1px] bg-black opacity-5"></h1>
     </div>
   );

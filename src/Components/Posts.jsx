@@ -7,14 +7,14 @@ const Posts = () => {
   // console.log(posts);
 
   return (
-    <div className="flex flex-col select-none sm:mx-2 sm:w-full lg:w-[56%] gap-y-2 sm:mt-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-6 sm:mt-2">
       {posts.map((post, index) => (
-        <Link key={index} to={`/post/${post.title}`}>
+        <Link to={`/post/${post.title}`} key={index}>
           <Post
             title={post.title}
             date={post.date}
             img={post.img}
-            content={post.content.slice(0, 22)}
+            content={post.content.slice(0, 50)}
             likes={post.likes}
             comments={post.comments}
           />
