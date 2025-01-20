@@ -10,7 +10,7 @@ const FeaturedArticle = () => {
 
       <div className="flex flex-col md:flex-row border-2 border-black border-opacity-10 rounded-lg">
         <img
-          src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0x1qi3prdxb99ri13geu.png"
+          src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
           alt="image topic"
           className="flex w-full md:w-[60%] rounded-l-lg"
         />
@@ -23,7 +23,7 @@ const FeaturedArticle = () => {
             <span className="flex font-medium hover:underline">{`Tobi`}</span>
           </div>
           <Link
-            to=""
+            to="/post-tobi"
             className="text-2xl font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
           >
             Latest Advancements in Artificial Intelligence
@@ -49,7 +49,7 @@ const FeaturedArticle = () => {
 
             <div className="flex justify-end w-full mr-5">
               <Link
-                to=""
+                to="/post-tobi"
                 className="border-2 border-black border-opacity-15 px-3 p-1 rounded-lg hover:bg-slate-100 duration-75 ease-out font-semibold"
               >
                 Read More

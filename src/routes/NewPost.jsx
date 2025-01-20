@@ -101,7 +101,7 @@ const NewPost = () => {
 
       <form
         onSubmit={handleFormSubmit}
-        className="flex-grow container mx-auto max-w-2xl py-8 px-4 md:px-0 flex flex-col mb-12"
+        className="flex-grow container mx-auto max-w-2xl px-4 py-8 flex flex-col mb-12"
       >
         <h3 className="font-bold text-3xl">Create a New Post</h3>
 
