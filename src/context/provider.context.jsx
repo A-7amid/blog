@@ -22,7 +22,7 @@ const PostsProvider = ({ children }) => {
 
   const createPost = useCallback((post) => {
     const newPost = { ...post, date: new Date().toDateString() };
-    setPosts([...posts, newPost]);
+    setPosts([newPost, ...posts]);
   });
 
   const values = useMemo(

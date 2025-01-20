@@ -1,4 +1,16 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
+const names = [
+  "Jane Smith",
+  "Alice Johnson",
+  "Bob Brown",
+  "Charlie Davis",
+  "Emily Evans",
+  "Frank Green",
+  "Grace Harris",
+];
+var count = 0;
 
 const Post = ({
   title,
@@ -10,8 +22,11 @@ const Post = ({
   category,
   userName,
 }) => {
+  useEffect(() => {
+    count++;
+  }, []);
   return (
-    <div className="flex hover:shadow-md duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
+    <div className="flex hover:shadow-md shadow-sm duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
         <div className="flex sm:w-full">
           <img
@@ -26,7 +41,10 @@ const Post = ({
             <span>In</span>
             <span className="flex font-medium hover:underline">{`React JS`}</span>
             <span>by</span>
-            <span className="flex font-medium hover:underline">{`Tobi`}</span>
+            <span className="flex font-medium hover:underline">
+              {userName || names[count]}
+            </span>
+            <span className="marck-font cursor-text">/ {date}</span>
           </div>
           {/* text-2xl font-bold w-fit mb-4 hover:text-blue-700 duration-200 cursor-pointer */}
           <h3 className="font-bold text-2xl opacity-85 mb-3 hover:text-blue-800 duration-200 cursor-pointer">

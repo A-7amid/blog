@@ -17,6 +17,7 @@ const Posts = () => {
             content={post.content.slice(0, 50)}
             likes={post.likes}
             comments={post.comments}
+            userName={post.userName}
           />
         </Link>
       ))}

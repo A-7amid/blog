@@ -7,8 +7,10 @@ import Footer from "./Components/Footer";
 const App = () => {
   return (
     <div className="min-h-screen max-h-full flex flex-col roboto-mono">
-      <Navbar />
-      <div className="mx-4">
+      <div>
+        <Navbar />
+      </div>
+      <div className="flex flex-grow container mx-auto flex-col px-4 mb-8">
         <FeaturedArticle />
 
         <h2 className="mt-12 my-3 flex text-3xl font-bold roboto-mono">

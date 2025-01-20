@@ -13,3 +13,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+.mooli-regular {
+  font-family: "Mooli", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

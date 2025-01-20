@@ -9,6 +9,7 @@ import { usePosts } from "../context/provider.context";
 import { Link, useHref, useNavigate } from "react-router-dom";
 import Dropzone, { useDropzone } from "react-dropzone";
 import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 
 const NewPost = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -29,7 +30,6 @@ const NewPost = () => {
       )
     );
   }, []);
-  // console.log(files);
   const {
     getRootProps,
     getInputProps,
@@ -41,15 +41,14 @@ const NewPost = () => {
     onDrop,
     accept: "image/jpeg, image/png, image/jpg",
   });
-
-  // border-[2px] border-zinc-400 rounded-md hover:shadow-md h-64 flex bg-white cursor-default font-semibold select-none
+  console.log(acceptedFiles);
+  console.log(files);
 
   const baseStyle = {
     borderWidth: 2.3,
     // borderColor: "#a1a1aa",
     borderRadius: 6,
-    height: 55,
-    width: 200,
+    width: "full",
     display: "flex",
     backgroundColor: "white",
     fontWeight: 600,
@@ -97,74 +96,81 @@ const NewPost = () => {
   }, []);
 
   return (
-    <div className="w-full bg-zinc-100 min-h-screen max-h-full">
+    <div className="roboto-mono flex flex-col min-h-screen max-h-full">
       <Navbar />
+
       <form
         onSubmit={handleFormSubmit}
-        className=" w-[92%]
-     sm:w-[80%]
-     md:w-7/12 mx-auto"
+        className="flex-grow container mx-auto max-w-2xl py-8 px-4 md:px-0 flex flex-col mb-12"
       >
-        <div className="flex mt-4 mb-8">
+        <h3 className="font-bold text-3xl">Create a New Post</h3>
+
+        <label htmlFor="" className="flex flex-col pt-5 gap-y-1">
+          <span className="text-sm font-medium">Title</span>
           <input
+            name="title"
             ref={inputRef}
             type="text"
-            placeholder="New Post Title Here..."
-            className="w-full font-semibold md:text-3xl sm:text-2xl outline-none px-8 p-6 sm:px-12 sm:p-8 rounded-lg placeholder-black placeholder-opacity-60"
-            name="title"
+            required
+            className="border-2 px-3 rounded-md py-2 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
-        </div>
-        <div>
+        </label>
+
+        <label htmlFor="" className="flex flex-col pt-5 gap-y-1">
+          <span className="text-sm font-medium">Content</span>
           <textarea
+            type="text"
+            required
             name="content"
-            placeholder="Type your post content here..."
-            className="w-full outline-none h-60 px-8 p-6 mb-8 sm:px-12 sm:p-8 rounded-lg placeholder-black placeholder-opacity-70 tracking-wider space-x-11"
+            className="min-h-[200px] max-h-[800px] border-2 px-3 rounded-md py-2 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
+        </label>
+
+        <div className="flex flex-col">
+          <label htmlFor="" className="mt-5 font-medium text-xl">
+            Category
+          </label>
+
+          <select className="border-2 bg-transparent px-2 rounded-md py-2 text-lg">
+            <option value="" hidden required>
+              Select a Category
+            </option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="github">GitHub</option>
+            <option value="react js">React JS</option>
+          </select>
         </div>
 
-        <div
-          {...getRootProps({ style })}
-          className="border-black border-opacity-20 mb-10"
-        >
-          <input {...getInputProps()} className="h-full w-full" />
-          {isDragActive ? (
-            <p className="flex justify-center items-center w-full h-full">
-              Drop the files here ...
-            </p>
-          ) : (
-            <p className="flex justify-center items-center w-full h-full">
-              Add a cover image
-            </p>
-          )}
-        </div>
+        <div className="flex flex-col mt-5">
+          <label htmlFor="" className="font-medium text-xl">
+            Cover Image
+          </label>
 
-        <div className="relative">
-          <button
-            type="submit"
-            className="bg-sky-700 hover:bg-blue-600 transition duration-300 text-white font-medium p-2 px-4 rounded-lg"
+          <div
+            {...getRootProps({ style })}
+            className="border-black border-opacity-10"
           >
-            Publish
-          </button>
+            <input {...getInputProps()} className="h-full w-full" />
+            <p className="rounded-md text-lg font-medium flex justify-center items-center pl-4 py-2">
+              Choose Image{" "}
+              <span className="font-normal ml-2" required>
+                {"No image chosen"}
+              </span>
+            </p>
+          </div>
         </div>
+
+        <button
+          type="submit"
+          to="/"
+          className="bg-slate-900 hover:bg-slate-800 duration-200 text-white rounded-md text-lg py-2 flex justify-center items-center font-medium mt-5 -mb-12"
+        >
+          Publish Post
+        </button>
       </form>
 
       <Footer />
-    </div>
-  );
-};
-
-const Navbar = () => {
-  return (
-    <div>
-      <div className="flex items-center px-3 py-[16px] bg-zinc-100">
-        <Link to="/">
-          <h3 className="font-extrabold text-3xl ml-2 sm:ml-16 md:ml-2 opacity-80 marck-font">
-            VoxOmnia
-          </h3>
-        </Link>
-      </div>
-
-      <h1 className="h-[1px] bg-black opacity-5"></h1>
     </div>
   );
 };

@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="border-t-2 border-opacity-15 mt-12 gap-x-12">
-      <div className="pt-8 p-5 flex">
+    <footer className="border-t">
+      <div className="pt-8 p-5 mx-auto container grid grid-cols-1 gap-y-8 sm:grid-cols-2 md:grid-cols-3">
         <div className="flex flex-col">
           <Link to="/" className="text-2xl font-bold">
             VoxOmnia
           </Link>
 
-          <span className="w-96 flex mt-4 text-slate-500 text-lg">
+          <span className="w-fit pr-6 flex mt-4 text-slate-500 text-lg">
             A modern blog offering diverse content in technology, culture, and
             art.
           </span>
         </div>
 
-        <div className="flex flex-col ml-16">
+        <div className="flex flex-col ">
           <h3 className="font-semibold text-xl">Quick Links</h3>
 
           <div className="flex flex-col mt-4 text-xl">
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col ml-80">
+        <div className="flex flex-col ">
           <h3 className="font-semibold text-xl mb-4">Follow Us</h3>
           <div class="flex space-x-4">
             <a href="#" class="hover:text-primary transition-colors">
@@ -104,7 +104,7 @@ const Footer = () => {
       <span className="flex w-full justify-center my-3 mb-7 font-semibold text-slate-500 text-lg">
         &copy; 2025 MyBlog. All rights reserved.
       </span>
-    </div>
+    </footer>
   );
 };
 

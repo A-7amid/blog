@@ -13,21 +13,35 @@ const PostContent = () => {
     if (post.title == params.postTitle) {
       var content = post.content;
       var image = post.img;
+      var userName = post.userName;
+      var date = post.date;
     }
     continue;
   }
 
   return (
-    <div>
+    <div className="flex flex-col roboto-mono min-h-screen max-h-full">
       <Navbar />
-      <div className="bg-white flex flex-col items-center mx-auto md:w-[55%] mb-24 mt-4">
+      <div className="bg-white flex flex-col container flex-grow items-center mx-auto max-w-3xl px-4 mb-10 mt-4">
         <img
           src={image}
           alt="image"
           className="overflow-hidden mb-10 md:rounded-t-lg"
         />
-        <div className="md:mx-auto mx-4">
-          <h1 className="text-black text-3xl font-bold sm:text-4xl md:text-5xl md:font-semibold opacity-90 mb-6 ">
+        <div>
+          <h1 className="flex gap-x-2 mb-8 items-center">
+            <span className="rounded-full bg-gray-300 size-10 flex justify-center items-center font-medium text-xl">
+              {userName.slice(0, 1)}
+            </span>
+            <div className="flex flex-col">
+              <span className="font-semibold text-lg">{userName}</span>
+              <span className="opacity-60 text-lg">
+                Posted on {date.slice(4, 9)}
+              </span>
+            </div>
+          </h1>
+
+          <h1 className="text-black text-2xl font-bold md:font-semibold opacity-90 mb-6 ">
             {params.postTitle}
           </h1>
 

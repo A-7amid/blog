@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FeaturedArticle = () => {
   return (
-    <div className="flex flex-col">
+    <header className="flex flex-col">
       <h3 className="text-3xl font-bold roboto-mono mt-6 my-4">
         Featured Article
       </h3>
@@ -32,7 +32,7 @@ const FeaturedArticle = () => {
             Explore with us the latest developments in the world of AI and their
             impact on our daily lives...
           </p>
-          <div className="flex flex-row items-center gap-2 select-none h-full">
+          <div className="flex flex-row items-center gap-2 select-none h-full pb-6">
             <img
               width="20"
               height="20"
@@ -58,7 +58,7 @@ const FeaturedArticle = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
