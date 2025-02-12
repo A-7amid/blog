@@ -46,7 +46,6 @@ const NewPost = () => {
 
   const baseStyle = {
     borderWidth: 2.3,
-    // borderColor: "#a1a1aa",
     borderRadius: 6,
     width: "full",
     display: "flex",

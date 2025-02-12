@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
-const names = [
+var names = [
   "Jane Smith",
   "Alice Johnson",
   "Bob Brown",
@@ -9,8 +8,17 @@ const names = [
   "Emily Evans",
   "Frank Green",
   "Grace Harris",
+  "Hannah White",
+  "Ian Black",
+  "Jack Wilson",
+  "Karen Thompson",
+  "Liam Martinez",
+  "Mia Robinson",
+  "Noah Clark",
+  "Olivia Lewis",
+  "Paul Walker",
+  "Quinn Hall",
 ];
-var count = 0;
 
 const Post = ({
   title,
@@ -22,9 +30,6 @@ const Post = ({
   category,
   userName,
 }) => {
-  useEffect(() => {
-    count++;
-  }, []);
   return (
     <div className="flex hover:shadow-md shadow-sm duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
@@ -42,7 +47,7 @@ const Post = ({
             <span className="flex font-medium hover:underline">{`React JS`}</span>
             <span>by</span>
             <span className="flex font-medium hover:underline">
-              {userName || names[count]}
+              {userName || names[Math.round(Math.random() * names.length)]}
             </span>
             <span className="marck-font cursor-text">/ {date}</span>
           </div>
@@ -62,13 +67,13 @@ const Post = ({
               src="https://img.icons8.com/windows/32/228BE6/facebook-like.png"
               alt="like"
             />
-            <span>{likes}</span>
+            <span>{likes || "120"}</span>
 
             <img
               src="https://img.icons8.com/?size=20&id=22050&format=png&color=228BE6"
               alt="comment"
             />
-            <span>{comments}</span>
+            <span>{comments || "13"}</span>
 
             <div className="flex justify-end w-full mr-5">
               <Link

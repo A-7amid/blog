@@ -31,7 +31,7 @@ const PostContent = () => {
         <div>
           <h1 className="flex gap-x-2 mb-8 items-center">
             <span className="rounded-full bg-gray-300 size-10 flex justify-center items-center font-medium text-xl">
-              {userName.slice(0, 1)}
+              {/* {userName.slice(0, 1)} */}
             </span>
             <div className="flex flex-col">
               <span className="font-semibold text-lg">{userName}</span>

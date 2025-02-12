@@ -102,7 +102,7 @@ const Footer = () => {
         </div>
       </div>
       <span className="flex w-full justify-center my-3 mb-7 font-semibold text-slate-500 text-lg">
-        &copy; 2025 MyBlog. All rights reserved.
+        &copy; 2025 VoxOmnia. All rights reserved.
       </span>
     </footer>
   );

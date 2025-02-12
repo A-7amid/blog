@@ -7,7 +7,7 @@ export const dummyData = [
       "If you've ever found yourself repeatedly Googling the same code snippets, then SnipNest is something you'll find very useful. It's a place to share snippets with ease. Why SnipNest?The idea for SnipNest came from my own frustrations. As a developer, I often need quick solutions to problems I've solved a dozen times before. While there are plenty of resources out there, I didn't find one that would fit my preference. I wanted a structured, easy-to-use, and searchable collection of snippets. That's how SnipNest was born.",
     likes: 120,
     comments: 15,
-    userName: "Filo",
+    userName: "Kareem",
   },
   {
     title: "GitHub Branching Name Best Practices",
@@ -17,7 +17,7 @@ export const dummyData = [
       "On GitHub, branching is a crucial component of collaborative software development. In addition to keeping your project organized, using consistent and unambiguous branch naming conventions makes it easier for team members to quickly comprehend each branch's purpose. Some best practices for naming branches in your GitHub projects are listed below. 1. Use Prefixes to Indicate PurposePrefixing branch names based on their purpose helps categorize and identify them quickly. Here are some common prefixes:feature/: For new features or functionalities.bugfix/: For fixing bugs in the code.hotfix/: For urgent patches, usually applied to production.design/: For user interface or user experience updates.refactor/: For improving code structure without changing functionality.test/: For writing or improving automated tests.doc/: For documentation updates.",
     likes: 95,
     comments: 10,
-    userName: "Mostafa Adly",
+    userName: "Mohammed",
   },
   {
     title: "22 Unique Developer Resources You Should Explore",
@@ -41,6 +41,6 @@ None`,
       "📖 What is TypeScript? TypeScript is a strongly typed, object-oriented programming language that builds on JavaScript by adding static types. ⚠️ Limitations of JavaScript Dynamically Typed Language: We can put a string or number or array or object on the same variable which isn’t a feasible thing. Also checking the type errors in large-scale apps is very difficult.",
     likes: 110,
     comments: 12,
-    userName: "Hossam",
+    userName: "Mohsen",
   },
 ];
