@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Heart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 var names = [
   "Jane Smith",
@@ -20,16 +20,7 @@ var names = [
   "Quinn Hall",
 ];
 
-const Post = ({
-  title,
-  img,
-  date,
-  content,
-  likes,
-  comments,
-  category,
-  userName,
-}) => {
+const Post = ({ title, img, date, content, likes, comments, userName }) => {
   return (
     <div className="flex hover:shadow-md shadow-sm duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
@@ -41,50 +32,48 @@ const Post = ({
        flex flex-grow rounded-t-md"
           />
         </div>
-        <div className="px-4 pt-2 flex flex-col cursor-default">
-          <div className="flex gap-x-1 opacity-80 mb-2">
+        <div className="px-4 pt-2 flex flex-col cursor-default text-zinc-600">
+          <div className="flex gap-x-1 opacity-80 mb-2.5 mt-2.5 text-black bg-gray-200 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
             <span>In</span>
             <span className="flex font-medium hover:underline">{`React JS`}</span>
             <span>by</span>
             <span className="flex font-medium hover:underline">
               {userName || names[Math.round(Math.random() * names.length)]}
             </span>
-            <span className="marck-font cursor-text">/ {date}</span>
           </div>
           {/* text-2xl font-bold w-fit mb-4 hover:text-blue-700 duration-200 cursor-pointer */}
-          <h3 className="font-bold text-2xl opacity-85 mb-3 hover:text-blue-800 duration-200 cursor-pointer">
+          <Link
+            to={`/post/${title}`}
+            className="font-bold text-lg text-black opacity-85 mb-3 hover:text-blue-800 duration-200 cursor-pointer"
+          >
             {title}
-          </h3>
+          </Link>
 
-          <p className="opacity-50 font-medium text-sm mb-5 cursor-text">
-            {content}
-          </p>
+          <p className="text-sm mb-5 cursor-text">{content}</p>
 
-          <div className="flex flex-row items-center gap-2 mb-6">
-            <img
-              width="20"
-              height="20"
-              src="https://img.icons8.com/windows/32/228BE6/facebook-like.png"
-              alt="like"
-            />
-            <span>{likes || "120"}</span>
-
-            <img
-              src="https://img.icons8.com/?size=20&id=22050&format=png&color=228BE6"
-              alt="comment"
-            />
-            <span>{comments || "13"}</span>
-
-            <div className="flex justify-end w-full mr-5">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
+              <Heart strokeWidth={2.5} size={16} />
+              <span className="text-xs">{likes || "120"}</span>
+            </div>
+            <div className="flex items-center gap-1 hover:text-black cursor-pointer transition duration-200">
+              <MessageCircle size={16} />
+              <span className="text-xs">{comments || "13"}</span>
+            </div>
+            <div className="flex justify-end w-full mr-5 mb-5">
               <Link
                 to={`/post/${title}`}
-                className="border-2 border-black border-opacity-15 px-3 p-1 rounded-lg hover:bg-slate-50 duration-75 ease-out font-semibold"
+                className="cursor-pointer text-black text-xs px-2 py-1 hover:bg-gray-100 rounded-md duration-75 ease-out font-semibold"
               >
                 Read More
               </Link>
             </div>
           </div>
         </div>
+
+        <div className="h-px bg-gray-200 w-full"></div>
+
+        <span className="text-sm text-black px-7 py-5 cursor-text">{date}</span>
       </div>
     </div>
   );

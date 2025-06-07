@@ -100,23 +100,26 @@ const NewPost = () => {
 
       <form
         onSubmit={handleFormSubmit}
-        className="flex-grow container mx-auto max-w-2xl px-4 py-8 flex flex-col mb-12"
+        className="flex-grow container mx-auto max-w-2xl px-4 py-4 flex flex-col mb-16"
       >
-        <h3 className="font-bold text-3xl">Create a New Post</h3>
+        <h3 className="font-bold text-xl">Create a New Post</h3>
 
-        <label htmlFor="" className="flex flex-col pt-5 gap-y-1">
-          <span className="text-sm font-medium">Title</span>
+        <div className="flex flex-col pt-3.5 gap-y-1">
+          <label htmlFor="title" className="text-md font-medium">
+            Title
+          </label>
           <input
+            id="title"
             name="title"
             ref={inputRef}
             type="text"
             required
-            className="border-2 px-3 rounded-md py-2 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
+            className="border-2 px-3 rounded-md py-2 w-full focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
-        </label>
+        </div>
 
         <label htmlFor="" className="flex flex-col pt-5 gap-y-1">
-          <span className="text-sm font-medium">Content</span>
+          <span className="text-md font-medium">Content</span>
           <textarea
             type="text"
             required
@@ -126,11 +129,11 @@ const NewPost = () => {
         </label>
 
         <div className="flex flex-col">
-          <label htmlFor="" className="mt-5 font-medium text-xl">
+          <label htmlFor="" className="mt-5 font-medium text-md">
             Category
           </label>
 
-          <select className="border-2 bg-transparent px-2 rounded-md py-2 text-lg">
+          <select className="border-2 bg-transparent px-2 rounded-md py-2 text-sm">
             <option value="" hidden required>
               Select a Category
             </option>
@@ -142,7 +145,7 @@ const NewPost = () => {
         </div>
 
         <div className="flex flex-col mt-5">
-          <label htmlFor="" className="font-medium text-xl">
+          <label htmlFor="" className="font-medium text-md">
             Cover Image
           </label>
 
@@ -151,7 +154,7 @@ const NewPost = () => {
             className="border-black border-opacity-10"
           >
             <input {...getInputProps()} className="h-full w-full" />
-            <p className="rounded-md text-lg font-medium flex justify-center items-center pl-4 py-2">
+            <p className="rounded-md text-sm font-medium flex justify-center items-center pl-4 py-2">
               Choose Image{" "}
               <span className="font-normal ml-2" required>
                 {"No image chosen"}
@@ -163,7 +166,7 @@ const NewPost = () => {
         <button
           type="submit"
           to="/"
-          className="bg-slate-900 hover:bg-slate-800 duration-200 text-white rounded-md text-lg py-2 flex justify-center items-center font-medium mt-5 -mb-12"
+          className="bg-slate-900 hover:bg-slate-800 duration-200 text-white rounded-md text-sm py-2 flex justify-center items-center font-medium mt-5 -mb-12"
         >
           Publish Post
         </button>

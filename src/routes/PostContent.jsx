@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { usePosts } from "../context/provider.context";
 import { useEffect } from "react";
 import Footer from "../Components/Footer";
+import { Heart, MessageCircle, Share2 } from "lucide-react";
 
 const PostContent = () => {
   const { posts } = usePosts();
@@ -34,8 +35,8 @@ const PostContent = () => {
               {/* {userName.slice(0, 1)} */}
             </span>
             <div className="flex flex-col">
-              <span className="font-semibold text-lg">{userName}</span>
-              <span className="opacity-60 text-lg">
+              <span className="font-semibold text-sm">{userName}</span>
+              <span className="opacity-60 text-sm">
                 Posted on {date.slice(4, 9)}
               </span>
             </div>
@@ -45,47 +46,33 @@ const PostContent = () => {
             {params.postTitle}
           </h1>
 
-          <p className="text-lg opacity-85">{content}</p>
+          <p className="text-md opacity-85">{content}</p>
         </div>
 
         <div className="flex mt-10 w-full">
           <div className="flex justify-start gap-x-4">
-            <div className="border-2 cursor-pointer border-opacity-20 rounded-lg flex py-1 justify-center items-center font-medium text-xl px-3 hover:bg-slate-100 duration-75">
-              <img
-                width="20"
-                height="20"
-                src="https://img.icons8.com/windows/32/228BE6/facebook-like.png"
-                alt="like"
-                className="mr-2"
-              />
-              Like
+            <div className="border-2 gap-x-1 cursor-pointer border-opacity-20 rounded-lg flex py-0.5 justify-center items-center text-sm px-3 hover:bg-slate-100 duration-75">
+              <Heart size={15} />
+              <span>Like</span>
             </div>
-            <div className="border-2 cursor-pointer border-opacity-20 rounded-lg flex py-1 justify-center items-center font-medium text-xl px-3 hover:bg-slate-100 duration-75">
-              <img
-                src="https://img.icons8.com/?size=20&id=22050&format=png&color=228BE6"
-                alt="comment"
-                className="mr-2"
-              />
-              Comment
+            <div className="border-2 gap-x-1 cursor-pointer border-opacity-20 rounded-lg flex py-0.5 justify-center items-center text-sm px-3 hover:bg-slate-100 duration-75">
+              <MessageCircle size={15} />
+              <span>Comment</span>
             </div>
           </div>
 
           <div className="flex justify-end flex-1 items-center">
-            <div className="border-2 cursor-pointer border-opacity-20 rounded-lg flex py-1 justify-center items-center font-medium text-xl px-3 hover:bg-slate-100 duration-75">
-              <img
-                src="/imgs/share.png"
-                alt="share"
-                className="size-4 flex mr-2"
-              />
-              Share
+            <div className="border-2 gap-1 cursor-pointer border-opacity-20 rounded-lg flex py-0.5 justify-center items-center text-sm px-2 hover:bg-slate-100 duration-75">
+              <Share2 size={15} />
+              <span> Share</span>
             </div>
           </div>
         </div>
         <div className="border-2 border-opacity-20 rounded-lg flex flex-col justify-center items-center mt-8 h-32 w-full">
           <div className="h-full w-full flex flex-col gap-4 p-6">
-            <h2 className="text-xl font-medium">Comments</h2>
+            <h2 className="text-md font-medium">Comments</h2>
 
-            <span className="flex text-slate-500 opacity-95">
+            <span className="flex text-sm text-slate-500 opacity-95">
               There are no comments yet. Be the first to comment!
             </span>
           </div>

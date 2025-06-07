@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePosts } from "../context/provider.context";
+import { LogOut, UserPlus } from "lucide-react";
 
 const Navbar = () => {
   const { posts, setPosts } = usePosts();
@@ -88,17 +89,19 @@ const Navbar = () => {
         </div>
         {/* End Phone Design */}
         {/* items-center sm:translate-x-16 lg:translate-x-[220px] sm:block hidden */}
-        <div className="hidden sm:flex">
+        <div className="hidden sm:flex gap-x-3">
           <div>
             <MakePost />
           </div>
           {/* gap-x-4 justify-end lg:translate-x-[230px] lg:-mr-14 hidden sm:flex */}
           <div className="gap-x-3 hidden sm:flex">
-            <Link className="border-2 border-opacity-15 rounded-lg flex justify-center items-center font-medium text-sm px-3 hover:bg-slate-100 duration-75">
-              Log In
+            <Link className="rounded-lg flex justify-center items-center px-3 gap-x-3 hover:bg-slate-100 duration-75">
+              <LogOut size={15} strokeWidth={3} />
+              <span className="text-sm">Log In</span>
             </Link>
-            <Link className="border-2 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center font-medium text-sm px-3 hover:bg-gray-900 duration-75">
-              Sign Up
+            <Link className="border-2 gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-75">
+              <UserPlus size={16} strokeWidth={3} />
+              <span className="text-sm">Sign Up</span>
             </Link>
           </div>
         </div>
@@ -126,11 +129,10 @@ const MakePost = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-square-pen mr-2 h-4 w-4"
-        className="size-[14px] left-4 top-3 absolute select-none stroke-black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="lucide lucide-square-pen mr-2 size-[14px] left-4 top-3 duration-200 transition-all absolute select-none stroke-black"
         ref={svgRef}
       >
         <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -140,7 +142,7 @@ const MakePost = () => {
       <button
         onMouseEnter={hi}
         onMouseLeave={hi2}
-        className="flex lg:hover:underline font-medium px-4 py-2 pl-11 hover:no-underline text-sm mr-2 rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black "
+        className="flex lg:hover:underline font-medium px-4 py-2 pl-11 duration-200 transition-all hover:no-underline text-sm mr-2 rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black "
       >
         Create Post
       </button>
