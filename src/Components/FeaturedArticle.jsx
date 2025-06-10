@@ -1,61 +1,66 @@
 import { Heart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePosts } from "../context/posts.context";
 
 const FeaturedArticle = () => {
+  const { isFilter } = usePosts();
+
   return (
-    <header className="flex flex-col w-[80%]">
-      <h3 className="text-2xl font-bold roboto-mono mt-6 my-4">
-        Featured Article
-      </h3>
+    !isFilter && (
+      <header className="flex flex-col md:w-[80%]">
+        <h3 className="text-2xl font-bold roboto-mono mt-6 my-4">
+          Featured Article
+        </h3>
 
-      <div className="flex flex-col md:flex-row border-2 border-black border-opacity-10 rounded-lg">
-        <img
-          src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
-          alt="image topic"
-          className="flex w-full md:size-[33%] rounded-l-lg"
-        />
+        <div className="flex flex-col md:flex-row border-2 border-black border-opacity-10 rounded-lg">
+          <img
+            src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
+            alt="image topic"
+            className="flex w-full md:size-[33%] rounded-l-lg"
+          />
 
-        <div className="flex flex-col mt-3 cursor-default mx-5 text-zinc-600">
-          <div className="flex gap-x-1 opacity-80 mb-4 text-blue-600 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
-            <span>In</span>
-            <span className="flex font-medium hover:underline">{`React JS`}</span>
-            <span>by</span>
-            <span className="flex font-medium hover:underline">{`Tobi`}</span>
-          </div>
-          <Link
-            to="/post-tobi"
-            className="text-2xl text-black font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
-          >
-            Latest Advancements in Artificial Intelligence
-          </Link>
-          <p className="text-black opacity-55 font-medium text-sm tracking-wide cursor-text mb-7">
-            Explore with us the latest developments in the world of AI and their
-            impact on our daily lives. From machine learning breakthroughs to
-            ethical considerations, discover how artificial intelligence is
-            reshaping our future.
-          </p>
-          <div className="flex flex-row items-center gap-2 select-none h-full pb-6">
-            <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
-              <Heart strokeWidth={2.5} size={16} />
-              <span className="text-xs">120</span>
+          <div className="flex flex-col mt-3 cursor-default mx-5 text-zinc-600">
+            <div className="flex gap-x-1 opacity-80 mb-4 text-blue-600 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
+              <span>In</span>
+              <span className="flex font-medium hover:underline">{`React JS`}</span>
+              <span>by</span>
+              <span className="flex font-medium hover:underline">{`Tobi`}</span>
             </div>
-            <div className="flex items-center gap-1 hover:text-black cursor-pointer transition duration-200">
-              <MessageCircle size={16} />
-              <span className="text-xs">17</span>
-            </div>
+            <Link
+              to="/post-tobi"
+              className="text-2xl text-black font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
+            >
+              Latest Advancements in Artificial Intelligence
+            </Link>
+            <p className="text-black opacity-55 font-medium text-sm tracking-wide cursor-text mb-7">
+              Explore with us the latest developments in the world of AI and
+              their impact on our daily lives. From machine learning
+              breakthroughs to ethical considerations, discover how artificial
+              intelligence is reshaping our future.
+            </p>
+            <div className="flex flex-row items-center gap-2 select-none h-full pb-6">
+              <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
+                <Heart strokeWidth={2.5} size={16} />
+                <span className="text-xs">120</span>
+              </div>
+              <div className="flex items-center gap-1 hover:text-black cursor-pointer transition duration-200">
+                <MessageCircle size={16} />
+                <span className="text-xs">17</span>
+              </div>
 
-            <div className="flex justify-end w-full mr-5">
-              <Link
-                to="/post-tobi"
-                className="text-gray-100 bg-gray-800 hover:bg-gray-700 duration-150 transition rounded-md px-4 py-2 text-xs cursor-pointer"
-              >
-                Read More
-              </Link>
+              <div className="flex justify-end w-full mr-5">
+                <Link
+                  to="/post-tobi"
+                  className="text-gray-100 bg-gray-800 hover:bg-gray-700 duration-150 transition rounded-md px-4 py-2 text-xs cursor-pointer"
+                >
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    )
   );
 };
 

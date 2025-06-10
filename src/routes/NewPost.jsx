@@ -1,13 +1,7 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { usePosts } from "../context/provider.context";
-import { Link, useHref, useNavigate } from "react-router-dom";
-import Dropzone, { useDropzone } from "react-dropzone";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { usePosts } from "../context/posts.context";
+import { useNavigate } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 

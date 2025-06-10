@@ -1,18 +1,23 @@
-import Posts from "./Components/Posts";
-import Navbar from "./Components/Navbar";
-import FeaturedArticle from "./Components/FeaturedArticle";
-import Footer from "./Components/Footer";
+import Posts from "./components/Posts";
+import Navbar from "./components/Navbar";
+import FeaturedArticle from "./components/FeaturedArticle";
+import Footer from "./components/Footer";
+import { usePosts } from "./context/posts.context";
 
 const App = () => {
+  const { isFilter } = usePosts();
   return (
     <div className="min-h-screen max-h-full flex flex-col roboto-mono">
       <Navbar />
+
       <div className="flex flex-grow items-center container mx-auto flex-col px-4 mb-8">
         <FeaturedArticle />
+        {!isFilter && (
+          <h2 className="mt-12 my-3 flex text-2xl font-bold roboto-mono">
+            Latest Articles
+          </h2>
+        )}
 
-        <h2 className="mt-12 my-3 flex text-2xl font-bold roboto-mono">
-          Latest Articles
-        </h2>
         <Posts />
       </div>
       <Footer />

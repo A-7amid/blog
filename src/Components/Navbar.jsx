@@ -1,36 +1,54 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { usePosts } from "../context/provider.context";
-import { LogOut, UserPlus } from "lucide-react";
+import { usePosts } from "../context/posts.context";
+import { LogOut, Search, UserPlus, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Navbar = () => {
-  const { posts, setPosts } = usePosts();
+  const { searchPost, handleSearch } = usePosts();
 
-  const [searchPost, setSearchPost] = useState("");
+  const [isShown, setIsShown] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const inputSearchRef = useRef();
-
-  const handleInputSearch = (e) => {
-    const searchTerm = e.target.value;
-    setSearchPost(searchTerm);
-
-    const filter = posts.filter((post) => {
-      post.title.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-
-    setPosts(filter);
-  };
+  const searchInputRef = useRef();
 
   useEffect(() => {
     addEventListener("keydown", (e) => {
       if (e.ctrlKey && e.key == "k") {
         e.preventDefault();
-        inputSearchRef.current.focus();
+        searchInputRef.current.focus();
       }
     });
   });
 
-  const handleShow = () => {};
+  useEffect(() => {
+    if (inputValue !== "") {
+      setIsShown(true);
+      console.log(inputValue);
+    } else {
+      setIsShown(false);
+    }
+  }, [inputValue]);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    searchInputRef.current.value = e.target.value;
+    handleSearch(searchInputRef.current.value);
+  };
+
+  const handleDelete = () => {
+    searchInputRef.current.value = "";
+    setIsShown(false);
+    setInputValue("");
+    handleSearch(searchInputRef.current.value);
+  };
 
   return (
     <nav className="border-b">
@@ -41,47 +59,63 @@ const Navbar = () => {
           </h3>
         </Link>
         <label className="relative select-none cursor-text sm:block hidden">
-          <svg
-            className="size-[18px] absolute md:top-[10px] md:left-5 opacity-60 top-2 left-5 sm:left-5 stroke-black stroke-1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="100"
-            height="100"
-            viewBox="0 0 30 30"
-          >
-            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
-          </svg>
-          <input
-            ref={inputSearchRef}
-            value={searchPost}
-            onChange={handleInputSearch}
-            type="text"
-            placeholder="Search"
-            className="focus:outline-blue-600 sm:items-center sm:-mr-24 md:w-96 w-44 shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal px-3 py-[6px] rounded-md pl-10 placeholder-black placeholder-opacity-50 placeholder:font-semibold"
-          />
-          <span className="hidden md:top-[10px] md:right-5 md:translate-x-24 md:absolute md:block opacity-60 font-bold text-sm">
-            Ctrl K
-          </span>
+          <div className="focus:outline-blue-600 px-3 justify-between sm:items-center sm:-mr-24 md:w-96 w-44 flex shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
+            <div className="flex items-cetner gap-x-1 flex-grow">
+              <Search
+                size={16}
+                strokeWidth={2.7}
+                className="opacity-60 mt-[3px] mr-2"
+              />
+              <input
+                value={inputValue}
+                ref={searchInputRef}
+                onChange={handleInputChange}
+                type="text"
+                placeholder="Search"
+                className="outline-none placeholder-black flex-grow placeholder-opacity-50 placeholder:font-semibold"
+              />
+              {isShown && (
+                <X
+                  size={15}
+                  strokeWidth={3}
+                  onClick={handleDelete}
+                  className="opacity-60 hover:opacity-100 cursor-pointer mt-1 mr-0.5"
+                />
+              )}
+            </div>
+            <span className="hidden md:flex opacity-60 font-bold text-sm">
+              Ctrl K
+            </span>
+          </div>
         </label>
 
         {/* Phone Design */}
-        <div className="flex w-full justify-end gap-x-5 sm:hidden">
-          <button
-            onClick={handleShow}
-            className="flex items-center font-bold text-[160%] justify-center px-4 p-2 rounded-lg hover:bg-zinc-100 duration-100"
-          >
-            ≡
-          </button>
-        </div>
+        {/* <div className="flex w-full justify-end gap-x-5 sm:hidden"> */}
+          <Sheet>
+            <SheetTrigger>
+              <button className="flex items-center font-bold text-[160%] justify-center px-4 p-2 rounded-lg hover:bg-zinc-100 duration-100">
+                ≡
+              </button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Are you absolutely sure?</SheetTitle>
+                <SheetDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        {/* </div> */}
 
         <div className="w-[80%] hidden">
           <MakePost />
 
           <input
-            ref={inputSearchRef}
+            ref={searchInputRef}
             value={searchPost}
-            onChange={handleInputSearch}
+            onChange={handleSearch}
             type="text"
             placeholder="Search"
             className="focus:outline-blue-600 md:w-96 w-44 shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal px-3 py-[6px] rounded-md pl-10 placeholder-black placeholder-opacity-50 placeholder:font-semibold"
