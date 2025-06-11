@@ -7,19 +7,29 @@ const FeaturedArticle = () => {
 
   return (
     !isFilter && (
-      <header className="flex flex-col md:w-[80%]">
+      <header className="flex flex-col lg:w-[90%] xl:w-[80%]">
         <h3 className="text-2xl font-bold roboto-mono mt-6 my-4">
           Featured Article
         </h3>
 
-        <div className="flex flex-col md:flex-row border-2 border-black border-opacity-10 rounded-lg">
-          <img
-            src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
-            alt="image topic"
-            className="flex w-full md:size-[33%] rounded-l-lg"
-          />
+        <div className="flex flex-col lg:flex-row border-2 border-black border-opacity-10 rounded-lg">
+          <div className="relative lg:hidden rounded-t-lg overflow-hidden items-center justify-center h-[220px]">
+            <img
+              src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
+              alt="image topic"
+              className="flex w-full rounded-l-lg md:-mt-28"
+            />
+          </div>
 
-          <div className="flex flex-col mt-3 cursor-default mx-5 text-zinc-600">
+          <div className="relative">
+            <img
+              src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
+              alt="image topic"
+              className="hidden lg:flex h-full w-full rounded-l-lg"
+            />
+          </div>
+
+          <div className="flex flex-col mt-5 lg:mt-3 cursor-default mx-5 text-zinc-600">
             <div className="flex gap-x-1 opacity-80 mb-4 text-blue-600 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
               <span>In</span>
               <span className="flex font-medium hover:underline">{`React JS`}</span>

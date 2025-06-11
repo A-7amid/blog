@@ -51,7 +51,7 @@ const Post = ({ title, img, date, content, likes, comments, userName }) => {
 
           <p className="text-sm mb-5 cursor-text">{content}</p>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-x-2.5">
             <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
               <Heart strokeWidth={2.5} size={16} />
               <span className="text-xs">{likes || "120"}</span>
@@ -60,10 +60,10 @@ const Post = ({ title, img, date, content, likes, comments, userName }) => {
               <MessageCircle size={16} />
               <span className="text-xs">{comments || "13"}</span>
             </div>
-            <div className="flex justify-end w-full mr-5 mb-5">
+            <div className="flex justify-end w-full">
               <Link
                 to={`/post/${title}`}
-                className="cursor-pointer text-black text-xs px-2 py-1 hover:bg-gray-100 rounded-md duration-75 ease-out font-semibold"
+                className="cursor-pointer text-black text-xs px-3 py-1.5 hover:bg-gray-100 rounded-sm duration-75 ease-out font-semibold"
               >
                 Read More
               </Link>
@@ -71,9 +71,11 @@ const Post = ({ title, img, date, content, likes, comments, userName }) => {
           </div>
         </div>
 
-        <div className="h-px bg-gray-200 w-full"></div>
+        <div className="h-px bg-gray-200 w-full mt-3"></div>
 
-        <span className="text-sm text-black px-7 py-5 cursor-text">{date}</span>
+        <span className="text-sm text-black px-7 py-3.5 cursor-text">
+          {date}
+        </span>
       </div>
     </div>
   );

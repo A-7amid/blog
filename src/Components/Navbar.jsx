@@ -66,8 +66,8 @@ const Navbar = () => {
             VoxOmnia
           </h3>
         </Link>
-        <div className="focus:outline-blue-600 px-3 hidden justify-between sm:items-center sm:-mr-24 md:w-96 w-44 sm:flex shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
-          <div className="flex items-cetner gap-x-1 flex-grow">
+        <div className="focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
+          <div className="flex items-cetner gap-x-1 lg:flex-grow">
             <Search
               size={16}
               strokeWidth={2.7}
@@ -79,7 +79,7 @@ const Navbar = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="Search"
-              className="outline-none placeholder-black flex-grow placeholder-opacity-50 placeholder:font-semibold"
+              className="outline-none placeholder-black w-24 lg:flex-grow placeholder-opacity-50 placeholder:font-semibold"
             />
             {isShown && (
               <X
@@ -90,21 +90,19 @@ const Navbar = () => {
               />
             )}
           </div>
-          <span className="hidden md:flex opacity-60 font-bold text-sm">
+          <span className="hidden md:flex items-center text-nowrap opacity-60 font-bold text-sm">
             Ctrl K
           </span>
         </div>
 
-        <div className="hidden sm:flex gap-x-3">
-          <div>
-            <MakePost />
-          </div>
+        <div className="hidden md:flex gap-x-3">
+          <MakePost />
           <div className="gap-x-3 hidden sm:flex">
-            <Link className="rounded-lg flex justify-center items-center px-3 gap-x-3 hover:bg-slate-100 duration-200 transition-all">
+            <Link className="rounded-lg text-nowrap flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-slate-100 duration-200 transition-all">
               <LogOut size={15} strokeWidth={3} />
               <span className="text-sm">Log In</span>
             </Link>
-            <Link className="border-2 gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all">
+            <Link className="border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all">
               <UserPlus size={16} strokeWidth={3} />
               <span className="text-sm">Sign Up</span>
             </Link>
@@ -112,14 +110,14 @@ const Navbar = () => {
         </div>
 
         {/* Phone Design */}
-        <div className="flex w-full justify-end gap-x-5 sm:hidden">
+        <div className="flex w-full justify-end gap-x-5 md:hidden">
           <Sheet>
             <SheetTrigger>
               <button className="flex items-center font-bold justify-center px-2 p-1.5 rounded-sm hover:bg-zinc-200 transition-all duration-200">
                 <AlignJustify size={17} strokeWidth={3} />
               </button>
             </SheetTrigger>
-            <SheetContent className="w-[300px]">
+            <SheetContent className="w-[300px] sm:w-[400px]">
               <SheetHeader>
                 <SheetTitle className="font-extrabold text-3xl items-start flex opacity-80 marck-font">
                   VoxOmnia
@@ -157,9 +155,7 @@ const Navbar = () => {
                   <div className="h-px bg-zinc-200 w-full my-4"></div>
 
                   <div className="gap-x-3 flex text-black flex-col gap-2">
-                    <MakePost
-                      className={"bg-black/85 hover:bg-black/75 text-white"}
-                    />
+                    <MakePost />
                     <Link className="rounded-lg border border-gray-200 flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-neutral-100 duration-200 transition-all">
                       <LogOut size={14} strokeWidth={3} />
                       <span className="text-sm">Log In</span>
@@ -186,7 +182,7 @@ const MakePost = ({ className }) => {
     <Link
       to="/new"
       className={cn(
-        "flex gap-3 justify-center items-center w-full lg:hover:underline font-medium px-4 py-2 duration-200 transition-all hover:no-underline text-sm rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black ",
+        "flex gap-3 bg-black/85 hover:bg-black/75 text-white text-nowrap justify-center items-center w-full lg:hover:underline font-medium px-4 py-2 duration-200 transition-all hover:no-underline text-sm rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black ",
         className
       )}
     >
