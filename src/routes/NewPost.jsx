@@ -4,17 +4,51 @@ import { useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const categories = [
+  { value: "programming-fundamentals", label: "Programming Fundamentals" },
+  {
+    value: "data-structures-algorithms",
+    label: "Data Structures & Algorithms",
+  },
+  { value: "design-patterns", label: "Design Patterns" },
+  { value: "python", label: "Python" },
+  { value: "javascript", label: "JavaScript" },
+  { value: "java", label: "Java" },
+  { value: "cpp", label: "C++" },
+  { value: "go", label: "Go" },
+  { value: "rust", label: "Rust" },
+  { value: "ruby", label: "Ruby" },
+  { value: "php", label: "PHP" },
+  { value: "csharp", label: "C#" },
+  { value: "html-css", label: "HTML / CSS" },
+  { value: "typescript", label: "TypeScript" },
+  { value: "reactjs", label: "React.js" },
+  { value: "frontend-development", label: "Frontend Development" },
+  { value: "backend-development", label: "Backend Development" },
+  { value: "fullstack-development", label: "Full Stack Development" },
+];
+
+const baseStyle = {
+  borderWidth: 2.3,
+  borderRadius: 6,
+  width: "full",
+  display: "flex",
+  backgroundColor: "white",
+  fontWeight: 600,
+  userSelect: "none",
+  cursor: "pointer",
+};
 
 const NewPost = () => {
-  const [isClicked, setIsClicked] = useState(false);
-  const [files, setFiles] = useState([]);
-
-  const inputRef = useRef();
-
   const { createPost } = usePosts();
-
-  const navigate = useNavigate();
-
   const onDrop = useCallback((acceptedFiles) => {
     setFiles(
       acceptedFiles.map((file) =>
@@ -24,6 +58,7 @@ const NewPost = () => {
       )
     );
   }, []);
+
   const {
     getRootProps,
     getInputProps,
@@ -35,55 +70,36 @@ const NewPost = () => {
     onDrop,
     accept: "image/jpeg, image/png, image/jpg",
   });
-  console.log(acceptedFiles);
-  console.log(files);
 
-  const baseStyle = {
-    borderWidth: 2.3,
-    borderRadius: 6,
-    width: "full",
-    display: "flex",
-    backgroundColor: "white",
-    fontWeight: 600,
-    userSelect: "none",
-    cursor: "pointer",
-  };
+  const [files, setFiles] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const activeStyle = {
-    borderColor: "#2196f3",
-  };
+  const inputRef = useRef();
 
-  const acceptedStyle = {
-    borderColor: "#00e676",
-  };
-
-  const rejectStyle = {
-    borderColor: "#ff1744",
-  };
+  const navigate = useNavigate();
 
   const style = useMemo(
     () => ({
       ...baseStyle,
-      ...(isDragAccept ? acceptedStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
-      ...(isDragActive ? activeStyle : {}),
+      ...(isDragAccept ? { borderColor: "#00e676" } : {}),
+      ...(isDragReject ? { borderColor: "#ff1744" } : {}),
+      ...(isDragActive ? { borderColor: "#2196f3" } : {}),
     }),
     [isDragAccept, isDragReject, isDragActive]
   );
 
   const handleFormSubmit = (e) => {
-    setIsClicked(true);
     e.preventDefault();
     createPost({
       title: e.target.title.value,
       content: e.target.content.value,
       img: files[0].preview,
+      category: selectedCategory,
     });
     e.target.title.value = "";
     e.target.content.value = "";
     navigate("/");
   };
-
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -108,7 +124,7 @@ const NewPost = () => {
             ref={inputRef}
             type="text"
             required
-            className="border-2 px-3 rounded-md py-2 w-full focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
+            className="border-2 px-3 rounded-md py-1.5 w-full focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
         </div>
 
@@ -121,7 +137,7 @@ const NewPost = () => {
             id="content"
             type="text"
             name="content"
-            className="min-h-[200px] max-h-[800px] border-2 px-3 rounded-md py-2 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
+            className="h-[200px] resize-none border-2 px-3 rounded-md py-1.5 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
         </div>
 
@@ -129,19 +145,21 @@ const NewPost = () => {
           <label htmlFor="category" className="mt-5 font-medium text-md">
             Category
           </label>
-
-          <select
-            id="category"
-            className="border-2 bg-transparent px-2 rounded-md py-2 text-sm"
+          <Select
+            value={selectedCategory}
+            onValueChange={(value) => setSelectedCategory(value)}
           >
-            <option value="" hidden required>
-              Select a Category
-            </option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="github">GitHub</option>
-            <option value="react js">React JS</option>
-          </select>
+            <SelectTrigger id="category" className="w-full">
+              <SelectValue placeholder="Select a Category" />
+            </SelectTrigger>
+            <SelectContent className="max-h-[300px]">
+              {categories.map((cat) => (
+                <SelectItem key={cat.value} value={cat.value}>
+                  {cat.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="flex flex-col mt-5">

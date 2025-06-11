@@ -86,7 +86,7 @@ const Navbar = () => {
                 size={15}
                 strokeWidth={3}
                 onClick={handleDelete}
-                className="opacity-60 hover:opacity-100 cursor-pointer mt-1 mr-0.5"
+                className="stroke-blue-500 hover:stroke-blue-600 cursor-pointer mt-1 mr-0.5"
               />
             )}
           </div>

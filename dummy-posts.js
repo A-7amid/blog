@@ -1,4 +1,4 @@
-export const dummyData = [
+export const dummyPosts = [
   {
     title: "I Built an Open-Source Code Snippet Collection",
     img: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpzrug7epj03o80crn2yw.png",
@@ -8,6 +8,7 @@ export const dummyData = [
     likes: 120,
     comments: 15,
     userName: "Kareem",
+    category: "backend-development",
   },
   {
     title: "GitHub Branching Name Best Practices",
@@ -18,6 +19,7 @@ export const dummyData = [
     likes: 95,
     comments: 10,
     userName: "Mohammed",
+    category: "programming-fundamentals",
   },
   {
     title: "22 Unique Developer Resources You Should Explore",
@@ -26,12 +28,10 @@ export const dummyData = [
     content: `In the ever-evolving world of development, staying updated with innovative tools and resources can supercharge your workflow and help you build smarter, faster, and better applications. 🌐✨ Below, I've curated a list of 22 lesser-known yet incredibly useful developer tools. From design inspiration to debugging assistance, these resources have got you covered! 1. Carbon 🖼️
 URL: https://carbon.now.sh
 What it does: Carbon lets you turn your code snippets into stunning visuals, perfect for sharing or embedding in blogs and presentations.
-Why it's great: Make your code aesthetically pleasing and shareable! Highlight your solutions or showcase your work effortlessly.
-
-None`,
-    likes: 150,
+Why it's great: Make your code aesthetically pleasing and shareable! Highlight your solutions or showcase your work effortlessly!`,
     userName: "Tobi",
     comments: 20,
+    category: "frontend-development",
   },
   {
     title: "🚀 TypeScript Fundamentals: A Complete Guide for Beginners",
@@ -42,5 +42,6 @@ None`,
     likes: 110,
     comments: 12,
     userName: "Mohsen",
+    category: "typescript",
   },
 ];

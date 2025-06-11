@@ -13,7 +13,7 @@ const App = () => {
       <div className="flex flex-grow items-center container mx-auto flex-col px-4 mb-8">
         <FeaturedArticle />
         {!isFilter && (
-          <h2 className="mt-12 my-3 flex text-2xl font-bold roboto-mono">
+          <h2 className="mt-10 my-3 flex text-2xl font-bold roboto-mono">
             Latest Articles
           </h2>
         )}

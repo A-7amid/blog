@@ -1,6 +1,6 @@
 import { Heart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-var names = [
+const names = [
   "Jane Smith",
   "Alice Johnson",
   "Bob Brown",
@@ -20,7 +20,16 @@ var names = [
   "Quinn Hall",
 ];
 
-const Post = ({ title, img, date, content, likes, comments, userName }) => {
+const Post = ({
+  title,
+  img,
+  date,
+  content,
+  likes,
+  comments,
+  userName,
+  category,
+}) => {
   return (
     <div className="flex hover:shadow-md shadow-sm duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
@@ -35,7 +44,9 @@ const Post = ({ title, img, date, content, likes, comments, userName }) => {
         <div className="px-4 pt-2 flex flex-col cursor-default text-zinc-600">
           <div className="flex gap-x-1 opacity-80 mb-2.5 mt-2.5 text-black bg-gray-200 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
             <span>In</span>
-            <span className="flex font-medium hover:underline">{`React JS`}</span>
+            <span className="flex font-medium hover:underline capitalize">
+              {category}
+            </span>
             <span>by</span>
             <span className="flex font-medium hover:underline">
               {userName || names[Math.round(Math.random() * names.length)]}

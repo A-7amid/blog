@@ -17,6 +17,7 @@ const Posts = () => {
               likes={post.likes}
               comments={post.comments}
               userName={post.userName}
+              category={post.category.replace("-", " ").replace("-", " & ")}
             />
           ))}
       </section>
