@@ -112,22 +112,28 @@ const NewPost = () => {
           />
         </div>
 
-        <label htmlFor="" className="flex flex-col pt-5 gap-y-1">
-          <span className="text-md font-medium">Content</span>
+        <div className="flex flex-col pt-5 gap-y-1">
+          <label htmlFor="content" className="text-md font-medium">
+            Content
+          </label>
           <textarea
-            type="text"
             required
+            id="content"
+            type="text"
             name="content"
             className="min-h-[200px] max-h-[800px] border-2 px-3 rounded-md py-2 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
           />
-        </label>
+        </div>
 
         <div className="flex flex-col">
-          <label htmlFor="" className="mt-5 font-medium text-md">
+          <label htmlFor="category" className="mt-5 font-medium text-md">
             Category
           </label>
 
-          <select className="border-2 bg-transparent px-2 rounded-md py-2 text-sm">
+          <select
+            id="category"
+            className="border-2 bg-transparent px-2 rounded-md py-2 text-sm"
+          >
             <option value="" hidden required>
               Select a Category
             </option>
@@ -139,9 +145,7 @@ const NewPost = () => {
         </div>
 
         <div className="flex flex-col mt-5">
-          <label htmlFor="" className="font-medium text-md">
-            Cover Image
-          </label>
+          <label className="font-medium text-md">Cover Image</label>
 
           <div
             {...getRootProps({ style })}
