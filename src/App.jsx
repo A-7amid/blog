@@ -1,6 +1,6 @@
 import Posts from "./Components/Posts";
 import Navbar from "./Components/Navbar";
-import FeaturedArticle from "./components/FeaturedArticle";
+import FeaturedArticle from "./Components/FeaturedArticle";
 import Footer from "./Components/Footer";
 import { usePosts } from "./context/posts.context";
 
