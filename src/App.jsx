@@ -1,4 +1,4 @@
-import Posts from "./components/Posts";
+import Posts from "./Components/Posts";
 import Navbar from "./Components/Navbar";
 import FeaturedArticle from "./components/FeaturedArticle";
 import Footer from "./Components/Footer";
