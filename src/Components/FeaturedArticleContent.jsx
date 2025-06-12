@@ -1,13 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { usePosts } from "../context/posts.context";
-import { useEffect } from "react";
 import Footer from "../Components/Footer";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
 
 const FeaturedArticleContent = () => {
   const { posts } = usePosts();
-
   const params = useParams();
 
   for (let post of posts) {
