@@ -1,7 +1,7 @@
 import Posts from "./components/Posts";
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 import FeaturedArticle from "./components/FeaturedArticle";
-import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 import { usePosts } from "./context/posts.context";
 
 const App = () => {
