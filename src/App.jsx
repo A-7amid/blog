@@ -1,8 +1,8 @@
 import Posts from "./Components/Posts";
-import Navbar from "./Components/Navbar";
 import FeaturedArticle from "./Components/FeaturedArticle";
 import Footer from "./Components/Footer";
 import { usePosts } from "./context/posts.context";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
   const { isFilter } = usePosts();
