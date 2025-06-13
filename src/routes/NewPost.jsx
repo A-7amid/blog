@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const categories = [
   { value: "programming-fundamentals", label: "Programming Fundamentals" },
@@ -145,7 +145,7 @@ const NewPost = () => {
           <label htmlFor="category" className="mt-5 font-medium text-md">
             Category
           </label>
-          {/* <Select
+          <Select
             value={selectedCategory}
             onValueChange={(value) => setSelectedCategory(value)}
           >
@@ -159,7 +159,7 @@ const NewPost = () => {
                 </SelectItem>
               ))}
             </SelectContent>
-          </Select> */}
+          </Select>
         </div>
 
         <div className="flex flex-col mt-5">
