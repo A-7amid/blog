@@ -66,8 +66,8 @@ const Navbar = () => {
             VoxOmnia
           </h3>
         </Link>
-        <div className="focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-sm hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
-          <div className="flex items-cetner gap-x-1 lg:flex-grow">
+        <div className="focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-xs hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
+          <div className="flex items-cetner gap-x-1 lg:grow">
             <Search
               size={16}
               strokeWidth={2.7}
@@ -79,7 +79,7 @@ const Navbar = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="Search"
-              className="outline-none placeholder-black w-24 lg:flex-grow placeholder-opacity-50 placeholder:font-semibold"
+              className="outline-hidden placeholder-black w-24 lg:grow placeholder-opacity-50 placeholder:font-semibold"
             />
             {isShown && (
               <X
@@ -123,8 +123,8 @@ const Navbar = () => {
                   VoxOmnia
                 </SheetTitle>
                 <SheetDescription>
-                  <div className="focus:outline-blue-600 bg-gray-50 mt-2 px-3 justify-between sm:items-center w-full flex shadow-sm hover:shadow-md border border-gray-200 duration-300 outline-slate-300 font-normal py-2 rounded-md">
-                    <div className="flex items-cetner gap-x-1 flex-grow">
+                  <div className="focus:outline-blue-600 bg-gray-50 mt-2 px-3 justify-between sm:items-center w-full flex shadow-xs hover:shadow-md border border-gray-200 duration-300 outline-slate-300 font-normal py-2 rounded-md">
+                    <div className="flex items-cetner gap-x-1 grow">
                       <Search
                         size={16}
                         strokeWidth={2.7}
@@ -136,7 +136,7 @@ const Navbar = () => {
                         onChange={handleInputChange}
                         type="text"
                         placeholder="Search"
-                        className="outline-none placeholder-black bg-gray-50 flex-grow placeholder-opacity-40 placeholder:font-bold"
+                        className="outline-hidden placeholder-black bg-gray-50 grow placeholder-opacity-40 placeholder:font-bold"
                       />
                       {isShown && (
                         <X

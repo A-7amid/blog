@@ -31,14 +31,14 @@ const Post = ({
   category,
 }) => {
   return (
-    <div className="flex hover:shadow-md shadow-sm duration-100 border-[1px] border-black border-opacity-10 rounded-md sm:-space-x-20">
+    <div className="flex hover:shadow-md shadow-xs duration-100 border border-black border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
         <div className="flex sm:w-full">
           <img
             src={img}
             alt="post image"
             className="
-       flex flex-grow rounded-t-md"
+       flex grow rounded-t-md"
           />
         </div>
         <div className="px-4 pt-2 flex flex-col cursor-default text-zinc-600">

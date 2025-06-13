@@ -22,7 +22,7 @@ const PostContent = () => {
   return (
     <div className="flex flex-col roboto-mono min-h-screen max-h-full">
       <Navbar />
-      <div className="bg-white flex flex-col container flex-grow items-center mx-auto max-w-3xl px-4 mb-10 mt-4">
+      <div className="bg-white flex flex-col container grow items-center mx-auto max-w-3xl px-4 mb-10 mt-4">
         <img
           src={image}
           alt="image"
