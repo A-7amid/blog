@@ -31,7 +31,7 @@ const Post = ({
   category,
 }) => {
   return (
-    <div className="flex hover:shadow-md shadow-xs duration-100 border border-black border-opacity-10 rounded-md sm:-space-x-20">
+    <div className="flex hover:shadow-md shadow-xs duration-100 border border-opacity-10 rounded-md sm:-space-x-20">
       <div className="flex flex-col">
         <div className="flex sm:w-full">
           <img

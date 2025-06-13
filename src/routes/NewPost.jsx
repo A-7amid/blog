@@ -124,7 +124,7 @@ const NewPost = () => {
             ref={inputRef}
             type="text"
             required
-            className="border-2 px-3 rounded-md py-1.5 w-full focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
+            className="border-2 px-3 rounded-md py-1.5 w-full focus:outline-offset-2 focus:outline-gray-500 focus:outline-2"
           />
         </div>
 
@@ -137,7 +137,7 @@ const NewPost = () => {
             id="content"
             type="text"
             name="content"
-            className="h-[200px] resize-none border-2 px-3 rounded-md py-1.5 focus:outline-offset-4 focus:outline-gray-700 focus:outline-1"
+            className="h-[200px] resize-none border-2 px-3 rounded-md py-1.5 focus:outline-offset-2 focus:outline-gray-500 focus:outline-2"
           />
         </div>
 
@@ -167,7 +167,7 @@ const NewPost = () => {
 
           <div
             {...getRootProps({ style })}
-            className="border-black border-opacity-10"
+            className="border border-opacity-10"
           >
             <input {...getInputProps()} className="h-full w-full" />
             <p className="rounded-md text-sm font-medium flex justify-center items-center pl-4 py-2">

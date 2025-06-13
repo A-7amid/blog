@@ -12,7 +12,7 @@ const FeaturedArticle = () => {
           Featured Article
         </h3>
 
-        <div className="flex flex-col lg:flex-row border-2 border-black border-opacity-10 rounded-lg">
+        <div className="flex flex-col lg:flex-row border-2 border-opacity-10 rounded-lg">
           <div className="relative lg:hidden rounded-t-lg overflow-hidden items-center justify-center h-[220px]">
             <img
               src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
