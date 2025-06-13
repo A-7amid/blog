@@ -79,7 +79,7 @@ const Navbar = () => {
               onChange={handleInputChange}
               type="text"
               placeholder="Search"
-              className="outline-hidden placeholder-black w-24 lg:grow placeholder-opacity-50 placeholder:font-semibold"
+              className="outline-hidden w-24 lg:grow placeholder-opacity-50 placeholder:font-semibold"
             />
             {isShown && (
               <X
