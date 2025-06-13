@@ -16,7 +16,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/Components/ui/sheet";
 import { cn } from "../utils/clsx";
 
 const Navbar = () => {

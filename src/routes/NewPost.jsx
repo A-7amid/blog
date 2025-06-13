@@ -10,7 +10,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/Components/ui/select";
 
 const categories = [
   { value: "programming-fundamentals", label: "Programming Fundamentals" },
