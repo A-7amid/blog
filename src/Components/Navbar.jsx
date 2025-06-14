@@ -19,7 +19,7 @@ import {
 } from "@/Components/ui/sheet";
 import { cn } from "../utils/clsx";
 
-const Navbar = () => {
+const Navbar = ({ searchable = false }) => {
   const { handleSearch } = usePosts();
 
   const [isShown, setIsShown] = useState(false);
@@ -66,7 +66,12 @@ const Navbar = () => {
             VoxOmnia
           </h3>
         </Link>
-        <div className="focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-xs hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md">
+        <div
+          className={cn(
+            "focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-xs hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md",
+            { "md:hidden px-3": !searchable }
+          )}
+        >
           <div className="flex items-cetner gap-x-1 lg:grow">
             <Search
               size={16}

@@ -5,6 +5,7 @@ import NewPost from "./routes/NewPost";
 import PostContent from "./routes/PostContent";
 import Search from "./routes/Search";
 import FeaturedArticleContent from "./Components/FeaturedArticleContent";
+import { LoginPage } from "./routes/LoginPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,4 +17,5 @@ export const router = createBrowserRouter([
   { path: "/new", element: <NewPost /> },
   { path: "/search", element: <Search /> },
   { path: "/post-tobi", element: <FeaturedArticleContent /> },
+  { path: "/login", element: <LoginPage /> },
 ]);

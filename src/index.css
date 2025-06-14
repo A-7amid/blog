@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin 'tailwindcss-animate';
 
@@ -64,11 +64,11 @@
 
 @layer utilities {
   .marck-font {
-    font-family: 'Marck Script', cursive;
+    font-family: "Marck Script", cursive;
   }
 
   .roboto-mono {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   html {
@@ -76,13 +76,17 @@
   }
 
   .mooli-regular {
-    font-family: 'Mooli', cursive;
+    font-family: "Mooli", cursive;
     font-weight: 400;
     font-style: normal;
   }
+
+  .geist-mono {
+    font-family: "Geist", sans-serif;
+    /* font-weight: 400;
+  font-style: normal; */
+  }
 }
-
-
 
 @layer base {
   :root {
@@ -139,8 +143,6 @@
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {

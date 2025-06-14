@@ -8,7 +8,7 @@ const App = () => {
   const { isFilter } = usePosts();
   return (
     <div className="min-h-screen max-h-full flex flex-col roboto-mono">
-      <Navbar />
+      <Navbar searchable={true} />
 
       <div className="flex grow items-center container mx-auto flex-col px-4 mb-8">
         <FeaturedArticle />
