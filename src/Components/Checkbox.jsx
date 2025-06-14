@@ -18,7 +18,7 @@ export const Checkbox = ({ label }) => {
       >
         <Check color={"white"} size={17} />
       </div>
-      <label htmlFor={label} className="text-sm font-[500]">
+      <label htmlFor={label} className="text-sm font-[500] select-none">
         {label}
       </label>
     </div>

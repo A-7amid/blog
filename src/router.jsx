@@ -6,6 +6,8 @@ import PostContent from "./routes/PostContent";
 import Search from "./routes/Search";
 import FeaturedArticleContent from "./Components/FeaturedArticleContent";
 import { LoginPage } from "./routes/LoginPage";
+import { SignupPage } from "./routes/SignupPage";
+import { ResetPassowrdPage } from "./routes/ResetPassowrdPage";
 
 export const router = createBrowserRouter([
   {
@@ -18,4 +20,6 @@ export const router = createBrowserRouter([
   { path: "/search", element: <Search /> },
   { path: "/post-tobi", element: <FeaturedArticleContent /> },
   { path: "/login", element: <LoginPage /> },
+  { path: "/signup", element: <SignupPage /> },
+  { path: "/reset_password", element: <ResetPassowrdPage /> },
 ]);

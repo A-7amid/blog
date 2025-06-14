@@ -18,9 +18,9 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-1 h-full items-center justify-center font-sans">
+    <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       <form
-        className="border -translate-y-10 border-black/10 w-[26%] rounded-md px-6 py-4"
+        className="border -translate-y-15 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-col gap-y-5">
@@ -33,10 +33,14 @@ export const LoginForm = () => {
 
           <div className="gap-y-3 flex flex-col">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="font-semibold text-sm">
+              <label
+                htmlFor="email"
+                className="font-semibold text-sm w-fit select-none"
+              >
                 Email
               </label>
               <input
+                id="email"
                 type="email"
                 placeholder="Enter email address"
                 className="border border-black/10 transition-colors duration-1000 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[5px] outline-black/35"
@@ -45,7 +49,10 @@ export const LoginForm = () => {
 
             <div className="flex flex-col gap-1.5">
               <div className="flex w-full items-center justify-between">
-                <label htmlFor="password" className="font-semibold text-sm">
+                <label
+                  htmlFor="password"
+                  className="font-semibold text-sm select-none"
+                >
                   Password
                 </label>
                 <Link
@@ -58,6 +65,7 @@ export const LoginForm = () => {
 
               <div className="border border-black/10 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
                 <input
+                  id="password"
                   type={passwordType}
                   placeholder="Enter your password"
                   className="outline-0 w-full "
