@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { cn } from "../utils/clsx";
-import { Check, Eye } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { Checkbox } from "./Checkbox";
+import { useState } from "react";
 
 export const LoginForm = () => {
+  const [passwordType, setPasswordType] = useState("password");
+
   const {
     register,
     handleSubmit,
@@ -54,13 +56,26 @@ export const LoginForm = () => {
                 </Link>
               </div>
 
-              <div className="border border-black/10 transition-colors duration-1000 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[5px] outline-black/35 flex items-center">
+              <div className="border border-black/10 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
                 <input
-                  type="password"
+                  type={passwordType}
                   placeholder="Enter your password"
-                  className="w-full outline-none"
+                  className="outline-0 w-full "
                 />
-                <Eye />
+
+                {passwordType === "password" ? (
+                  <EyeOff
+                    size={19}
+                    onClick={() => setPasswordType("text")}
+                    className="stroke-black/60 cursor-pointer hover:stroke-black transition duration-150"
+                  />
+                ) : (
+                  <Eye
+                    size={19}
+                    onClick={() => setPasswordType("password")}
+                    className="stroke-black/60 cursor-pointer hover:stroke-black transition duration-150"
+                  />
+                )}
               </div>
             </div>
           </div>
