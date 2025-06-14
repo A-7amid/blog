@@ -23,7 +23,7 @@ export const LoginForm = () => {
         className="border -translate-y-15 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex flex-col gap-y-5">
+        <div className="flex flex-col gap-y-6">
           <div className="flex flex-col items-center justify-center gap-1">
             <h3 className="font-bold text-2xl">Log in</h3>
             <p className="text-gray-500 text-sm">
@@ -31,7 +31,7 @@ export const LoginForm = () => {
             </p>
           </div>
 
-          <div className="gap-y-3 flex flex-col">
+          <div className="gap-y-6 flex flex-col">
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="email"
@@ -63,7 +63,7 @@ export const LoginForm = () => {
                 </Link>
               </div>
 
-              <div className="border border-black/10 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
+              <div className="border border-black/10 mb-2 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
                 <input
                   id="password"
                   type={passwordType}
@@ -85,10 +85,9 @@ export const LoginForm = () => {
                   />
                 )}
               </div>
+              <Checkbox label="Remember me" />
             </div>
           </div>
-
-          <Checkbox label="Remember me" />
 
           <div>
             <button className="mb-3 text-white bg-black/90 hover:bg-black/80 transition-colors duration-150 cursor-pointer rounded-md w-full py-2.5 text-sm font-semibold">
@@ -96,7 +95,7 @@ export const LoginForm = () => {
             </button>
 
             <div className="w-full flex items-center justify-center font-[500] gap-1 text-sm">
-              <span>Don't have an account? </span>
+              <span>Don&apos;t have an account? </span>
               <Link to="/signup" className="hover:underline ">
                 Sign up
               </Link>

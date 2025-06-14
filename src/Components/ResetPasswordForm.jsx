@@ -10,7 +10,7 @@ export const ResetPasswordForm = () => {
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       {!isSuccess ? (
         <form className="border border-black/10 -translate-y-15 w-[26%] rounded-md px-6 py-4 bg-white">
-          <div className="flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-6">
             <div className="flex flex-col items-center justify-center gap-1">
               <h3 className="font-bold text-2xl">Reset your password</h3>
               <p className="text-gray-500 text-sm">
@@ -18,7 +18,7 @@ export const ResetPasswordForm = () => {
               </p>
             </div>
 
-            <div className="gap-y-3 flex flex-col">
+            <div className="gap-y-6 flex flex-col">
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="email"
