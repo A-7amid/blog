@@ -17,16 +17,16 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState(dummyUsers);
-  const [err, setErr] = useState('')
+  const [err, setErr] = useState("");
 
   const handleAddUser = useCallback(
     (newUser) => {
       users.map((user) => {
         if (user.email === newUser.email) {
-          setErr('email')
+          setErr("email");
         }
-      })
-      if(newUser.password != )
+      });
+      // if(newUser.password != )
 
       setUsers((prev) => [...prev, newUser]);
     },

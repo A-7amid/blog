@@ -3,6 +3,8 @@ import { CircleAlert, Eye, EyeOff } from "lucide-react";
 import { Checkbox } from "./Checkbox";
 import { useState } from "react";
 import { useAuth } from "../context/authentication.context";
+import { ErrorMessage } from "@hookform/error-message";
+import { cn } from "../utils/clsx";
 
 export const SignupForm = () => {
   const { handleAddUser } = useAuth();
@@ -10,6 +12,7 @@ export const SignupForm = () => {
 
   const {
     watch,
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -19,6 +22,7 @@ export const SignupForm = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      terms: false,
     },
   });
 
@@ -27,24 +31,27 @@ export const SignupForm = () => {
   return (
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       <form
-        className="border -translate-y-15 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
+        className="border shadow-xl -translate-y-10 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
         onSubmit={handleSubmit(async (data) => {
           await handleAddUser(data);
         })}
       >
         <div className="flex flex-col gap-y-5">
-          <div className="flex flex-col items-center justify-center gap-1">
+          <header className="flex flex-col items-center justify-center gap-1">
             <h3 className="font-bold text-2xl">Create your account</h3>
             <p className="text-gray-500 text-sm">
               Enter your details to get started
             </p>
-          </div>
+          </header>
 
-          <div className="gap-y-3 flex flex-col">
+          <body className="gap-y-3 flex flex-col">
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="username"
-                className="font-semibold text-sm select-none w-fit"
+                className={cn(
+                  "font-semibold text-sm select-none w-fit text-black",
+                  { "text-red-400": errors?.username?.type === "required" }
+                )}
               >
                 Full Name
               </label>
@@ -53,15 +60,27 @@ export const SignupForm = () => {
                 type="text"
                 {...register("username", { required: true })}
                 // placeholder="Enter email address"
-                className="border border-black/10 transition-colors duration-1000 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[5px] outline-black/35"
+                className={cn(
+                  "border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[4px] outline-black/70",
+                  { "border-red-400": errors?.username?.type === "required" }
+                )}
               />
+
+              {/* <ErrorMessage
+                errors={errors}
+                name="username"
+                render={() => <p>Full name isrequired</p>}
+              /> */}
             </div>
 
             <div className="flex flex-col gap-1.5">
               <div>
                 <label
                   htmlFor="email"
-                  className="font-semibold text-sm select-none w-fit"
+                  className={cn(
+                    "font-semibold text-sm select-none w-fit text-black",
+                    { "text-red-400": errors?.email?.type === "required" }
+                  )}
                 >
                   Email
                 </label>
@@ -73,7 +92,10 @@ export const SignupForm = () => {
                 type="email"
                 {...register("email", { required: true })}
                 placeholder="Enter email address"
-                className="border border-black/10 transition-colors duration-1000 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[5px] outline-black/35"
+                className={cn(
+                  "border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[4px] outline-black/70",
+                  { "border-red-400": errors?.username?.type === "required" }
+                )}
               />
             </div>
 
@@ -81,7 +103,10 @@ export const SignupForm = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="font-semibold text-sm select-none w-fit"
+                  className={cn(
+                    "font-semibold text-sm select-none w-fit text-black",
+                    { "text-red-400": errors?.username?.type === "required" }
+                  )}
                 >
                   Password
                 </label>
@@ -89,10 +114,19 @@ export const SignupForm = () => {
                 {/* {errors.password && <span>fdsfsdf</span>} */}
               </div>
 
-              <div className="border border-black/10 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
+              <div
+                className={cn(
+                  "focus-within:outline-[3px] flex selece-none border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[2px] outline-black/70",
+                  { "border-red-400": errors?.username?.type === "required" }
+                )}
+              >
                 <input
                   id="password"
-                  {...register("password", { required: true })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 8,
+                    maxLength: 24,
+                  })}
                   type={passwordType}
                   placeholder="Enter your password"
                   className="outline-0 w-full "
@@ -113,29 +147,39 @@ export const SignupForm = () => {
                 )}
               </div>
 
-              <span className="text-gray-500 text-xs">
-                Must be at least 8 characters long
-              </span>
+              {watchAllFields.password.length < 8 &&
+                watchAllFields.password.length != 0 && (
+                  <span className="text-gray-500 text-xs">
+                    Must be at least 8 characters long
+                  </span>
+                )}
             </div>
 
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="confirm-password"
-                className="font-semibold text-sm select-none w-fit"
+                className={cn(
+                  "font-semibold text-sm select-none w-fit text-black",
+                  { "text-red-400": errors?.username?.type === "required" }
+                )}
               >
                 Confirm Passowrd
               </label>
 
-              <div className="border border-black/10 gap-1 flex rounded-md px-3 py-2 text-sm font-semibold focus-within:outline-[3px] outline-offset-[3px] outline-black/35">
+              <div
+                className={cn(
+                  "focus-within:outline-[3px] border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[2px] outline-black/70",
+                  { "border-red-400": errors?.username?.type === "required" }
+                )}
+              >
                 <input
                   id="confirm-password"
-                  type={passwordType}
+                  type="password"
                   {...register("confirmPassword", { required: true })}
                   placeholder="Enter your password"
                   className="outline-0 w-full "
                 />
-
-                {passwordType === "password" ? (
+                {/* {passwordType === "password" ? (
                   <EyeOff
                     size={19}
                     onClick={() => setPasswordType("text")}
@@ -147,32 +191,52 @@ export const SignupForm = () => {
                     onClick={() => setPasswordType("password")}
                     className="stroke-black/60 cursor-pointer hover:stroke-black transition duration-150"
                   />
-                )}
+                )} */}
               </div>
             </div>
 
             {watchAllFields.password !== watchAllFields.confirmPassword ? (
-              <span>
-                <CircleAlert /> Those passwords didn’t match. Try again.
+              <span className="text-red-500 flex items-center gap-1 text-sm -mb-2.5 -mt-2">
+                <CircleAlert size={16} /> Those passwords didn’t match. Try
+                again.
               </span>
             ) : (
               ""
             )}
-          </div>
+          </body>
 
           <Checkbox
-            label="
-I agree to the Terms of Service and Privacy Policy"
+            control={control}
+            name="terms"
+            label={
+              <div>
+                I agree to the{" "}
+                <span className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150">
+                  Terms of Service
+                </span>{" "}
+                and{" "}
+                <span className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150">
+                  Privacy Policy
+                </span>
+              </div>
+            }
           />
 
-          <div>
+          <footer className="flex flex-col items-center">
             <button
               type="submit"
               className="mb-3 text-white bg-black/90 hover:bg-black/80 transition-colors duration-150 cursor-pointer rounded-md w-full py-2.5 text-sm font-semibold"
             >
               Create Account
             </button>
-          </div>
+
+            <div className="flex items-center gap-1 text-sm">
+              Already have an account?
+              <span className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150">
+                Sign in
+              </span>
+            </div>
+          </footer>
         </div>
       </form>
     </div>
