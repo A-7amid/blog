@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import { Checkbox } from "./Checkbox";
+import { CustomCheckbox } from "./CustomCheckbox";
 import { useState } from "react";
 
 export const LoginForm = () => {
@@ -85,7 +85,7 @@ export const LoginForm = () => {
                   />
                 )}
               </div>
-              <Checkbox label="Remember me" />
+              <CustomCheckbox label="Remember me" />
             </div>
           </div>
 

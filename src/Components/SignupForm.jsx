@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { CircleAlert, Eye, EyeOff } from "lucide-react";
-import { Checkbox } from "./Checkbox";
+import { CustomCheckbox } from "./CustomCheckbox";
 import { useState } from "react";
 import { useAuth } from "../context/authentication.context";
 import { ErrorMessage } from "@hookform/error-message";
@@ -205,7 +205,7 @@ export const SignupForm = () => {
             )}
           </body>
 
-          <Checkbox
+          <CustomCheckbox
             control={control}
             name="terms"
             label={
