@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import { CustomComponents } from "./CustomComponents";
+import { CustomCheckbox } from "./CustomCheckbox";
 import { useState } from "react";
 import { useAuth } from "../context/authentication.context";
 import { cn } from "../utils/clsx";
@@ -132,7 +132,7 @@ export const LoginForm = () => {
                   Must be at most 24 characters long
                 </span>
               )}
-              <CustomComponents label="Remember me" />
+              <CustomCheckbox label="Remember me" />
             </div>
           </div>
 
