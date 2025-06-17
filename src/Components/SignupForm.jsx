@@ -32,7 +32,7 @@ export const SignupForm = () => {
   return (
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       <form
-        className="border shadow-xl -translate-y-10 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
+        className="border shadow-xl -translate-y-10 border-black/10 w-[450px] rounded-md px-6 py-4 bg-white"
         onSubmit={handleSubmit((data) => {
           handleAddUser(data);
         })}
@@ -112,8 +112,6 @@ export const SignupForm = () => {
                 >
                   Password
                 </label>
-
-                {/* {errors.password && <span>fdsfsdf</span>} */}
               </div>
 
               <div
@@ -155,6 +153,11 @@ export const SignupForm = () => {
                     Must be at least 8 characters long
                   </span>
                 )}
+              {watchAllFields.password.length > 24 && (
+                <span className="text-gray-500 text-xs">
+                  Must be at most 24 characters long
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-1.5">
@@ -203,13 +206,11 @@ export const SignupForm = () => {
               </div>
             </div>
 
-            {watchAllFields.password !== watchAllFields.confirmPassword ? (
+            {watchAllFields.password !== watchAllFields.confirmPassword && (
               <span className="text-red-500 flex items-center gap-1 text-sm -mb-2.5 -mt-2">
                 <CircleAlert size={16} /> Those passwords didn’t match. Try
                 again.
               </span>
-            ) : (
-              ""
             )}
           </body>
 

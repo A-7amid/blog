@@ -7,7 +7,7 @@ export const dummyUsers = [
   {
     name: "Sara Mansour",
     email: "sara.mansour@example.com",
-    password: "k8r4v6tm",
+    password: "aaaaaaaa",
   },
   {
     name: "Yousef Hamdan",

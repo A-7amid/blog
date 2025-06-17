@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { dummyUsers } from "../dummy-users";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -17,7 +18,10 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState(dummyUsers);
-  const [isInvalidEmail, setIsInvalidEmail] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isInvalidEmail, setIsInvalidEmail] = useState(false);
+
+  const navigate = "fdas";
 
   const handleAddUser = useCallback(
     (newUser) => {
@@ -33,26 +37,67 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogin = useCallback(
     (loginUser) => {
-      users.map((user) => {
-        if (user.email !== loginUser.email) {
-          setIsInvalidEmail(true);
-          console.log("not done");
-          return;
-        } else if (
-          user.email === loginUser.email &&
-          user.password === loginUser.password
-        ) {
-          console.log("done");
-          return;
-        }
+      const foundUser = users.find((user) => user.email === loginUser.email);
+      if (!foundUser) {
+        setIsInvalidEmail(true);
+        return;
+      } else if (foundUser.password !== loginUser.password) {
+        setIsInvalidEmail(true);
+        return;
+      }
+      setIsInvalidEmail(false);
+      console.log("login seccessfull");
+      navigate("");
+    },
+    [users, navigate]
+  );
+
+  const handleResetPassword = useCallback(
+    ({ email, password, newPassword }) => {
+      const foundUser = users.find((user) => user.email === email);
+      console.log(foundUser);
+      if (!foundUser) {
+        console.log("Not Found");
+        setIsSuccess(false);
+        return;
+      } else if (foundUser.password !== password) {
+        setIsInvalidEmail(true);
+        return;
+      }
+      setIsSuccess(true);
+      setIsInvalidEmail(false);
+      console.log("login seccessfull");
+
+      users.find((user) => {
+        user.email === email ? (user.password = newPassword) : "";
+
+        console.log(user);
       });
+
+      // console.log(email);
+      // setIsSuccess(true);
     },
     [users]
   );
 
   const values = useMemo(
-    () => ({ users, setUsers, handleAddUser, isInvalidEmail, handleLogin }),
-    [users, handleAddUser, isInvalidEmail, handleLogin]
+    () => ({
+      users,
+      setUsers,
+      handleAddUser,
+      isInvalidEmail,
+      handleLogin,
+      handleResetPassword,
+      isSuccess,
+    }),
+    [
+      users,
+      handleAddUser,
+      isInvalidEmail,
+      handleLogin,
+      handleResetPassword,
+      isSuccess,
+    ]
   );
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
