@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar } from "@/components/ui/calendar"
 
 export const CustomCheckbox = ({ label, control, name }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -10,13 +9,13 @@ export const CustomCheckbox = ({ label, control, name }) => {
 
   return (
     <div>
-      <Controller
+      {/* <Controller
         control={control}
         name={name}
         rules={{ required: true }}
         render={({ field: { onChange, onBlur, value, ref } }) => (
-          <div className="flex">
-            <
+          <div className="flex items-center gap-1">
+            <Checkbox
               onBlur={onBlur}
               onChange={onChange}
               checked={value}
@@ -29,14 +28,14 @@ export const CustomCheckbox = ({ label, control, name }) => {
               </label>
             </div>
 
-            {/* {!isChecked && (
+            {!isChecked && (
               <span className="text-sm text-red-500 flex mt-3">
                 You must agree to the terms
               </span>
-            )} */}
+            )}
           </div>
         )}
-      />
+      /> */}
     </div>
   );
 };

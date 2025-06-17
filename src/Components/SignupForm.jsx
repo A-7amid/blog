@@ -5,9 +5,10 @@ import { useState } from "react";
 import { useAuth } from "../context/authentication.context";
 import { ErrorMessage } from "@hookform/error-message";
 import { cn } from "../utils/clsx";
+import { Link } from "react-router-dom";
 
 export const SignupForm = () => {
-  const { handleAddUser } = useAuth();
+  const { isInvalidEmail, handleAddUser } = useAuth();
   const [passwordType, setPasswordType] = useState("password");
 
   const {
@@ -32,8 +33,8 @@ export const SignupForm = () => {
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       <form
         className="border shadow-xl -translate-y-10 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
-        onSubmit={handleSubmit(async (data) => {
-          await handleAddUser(data);
+        onSubmit={handleSubmit((data) => {
+          handleAddUser(data);
         })}
       >
         <div className="flex flex-col gap-y-5">
@@ -55,6 +56,13 @@ export const SignupForm = () => {
               >
                 Full Name
               </label>
+
+              {isInvalidEmail && (
+                <div className="text-red-500 text-sm">
+                  Email is already signed in
+                </div>
+              )}
+
               <input
                 id="username"
                 type="text"
@@ -65,12 +73,6 @@ export const SignupForm = () => {
                   { "border-red-400": errors?.username?.type === "required" }
                 )}
               />
-
-              {/* <ErrorMessage
-                errors={errors}
-                name="username"
-                render={() => <p>Full name isrequired</p>}
-              /> */}
             </div>
 
             <div className="flex flex-col gap-1.5">
@@ -94,7 +96,7 @@ export const SignupForm = () => {
                 placeholder="Enter email address"
                 className={cn(
                   "border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[4px] outline-black/70",
-                  { "border-red-400": errors?.username?.type === "required" }
+                  { "border-red-400": errors?.email?.type === "required" }
                 )}
               />
             </div>
@@ -105,7 +107,7 @@ export const SignupForm = () => {
                   htmlFor="password"
                   className={cn(
                     "font-semibold text-sm select-none w-fit text-black",
-                    { "text-red-400": errors?.username?.type === "required" }
+                    { "text-red-400": errors?.password?.type === "required" }
                   )}
                 >
                   Password
@@ -117,7 +119,7 @@ export const SignupForm = () => {
               <div
                 className={cn(
                   "focus-within:outline-[3px] flex selece-none border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[2px] outline-black/70",
-                  { "border-red-400": errors?.username?.type === "required" }
+                  { "border-red-400": errors?.password?.type === "required" }
                 )}
               >
                 <input
@@ -160,7 +162,10 @@ export const SignupForm = () => {
                 htmlFor="confirm-password"
                 className={cn(
                   "font-semibold text-sm select-none w-fit text-black",
-                  { "text-red-400": errors?.username?.type === "required" }
+                  {
+                    "text-red-400":
+                      errors?.confirmPassword?.type === "required",
+                  }
                 )}
               >
                 Confirm Passowrd
@@ -169,7 +174,10 @@ export const SignupForm = () => {
               <div
                 className={cn(
                   "focus-within:outline-[3px] border border-black/10 rounded-md px-3 py-2 text-sm font-semibold outline-offset-[2px] outline-black/70",
-                  { "border-red-400": errors?.username?.type === "required" }
+                  {
+                    "border-red-400":
+                      errors?.confirmPassword?.type === "required",
+                  }
                 )}
               >
                 <input
@@ -230,11 +238,14 @@ export const SignupForm = () => {
               Create Account
             </button>
 
-            <div className="flex items-center gap-1 text-sm">
+            <div className="flex items-center gap-1 text-sm my-2">
               Already have an account?
-              <span className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150">
+              <Link
+                to="/login"
+                className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150"
+              >
                 Sign in
-              </span>
+              </Link>
             </div>
           </footer>
         </div>

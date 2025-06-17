@@ -103,11 +103,17 @@ const Navbar = ({ searchable = false }) => {
         <div className="hidden md:flex gap-x-3">
           <MakePost />
           <div className="gap-x-3 hidden sm:flex">
-            <Link className="rounded-lg text-nowrap flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-slate-100 duration-200 transition-all">
+            <Link
+              to="/login"
+              className="rounded-lg text-nowrap flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-slate-100 duration-200 transition-all"
+            >
               <LogOut size={15} strokeWidth={3} />
               <span className="text-sm">Log In</span>
             </Link>
-            <Link className="border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all">
+            <Link
+              to="/signup"
+              className="border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all"
+            >
               <UserPlus size={16} strokeWidth={3} />
               <span className="text-sm">Sign Up</span>
             </Link>
@@ -185,7 +191,7 @@ const Navbar = ({ searchable = false }) => {
 const MakePost = ({ className }) => {
   return (
     <Link
-      to="/new"
+      to="/create-post"
       className={cn(
         "flex gap-3 bg-black/85 hover:bg-black/75 text-white text-nowrap justify-center items-center w-full lg:hover:underline font-medium px-4 py-2 duration-200 transition-all hover:no-underline text-sm rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black ",
         className

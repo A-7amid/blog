@@ -16,10 +16,10 @@ export const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   { path: "/post/:postTitle", element: <PostContent /> },
-  { path: "/new", element: <NewPost /> },
+  { path: "/create-post", element: <NewPost /> },
   { path: "/search", element: <Search /> },
   { path: "/post-tobi", element: <FeaturedArticleContent /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
-  { path: "/reset_password", element: <ResetPassowrdPage /> },
+  { path: "/password_reset", element: <ResetPassowrdPage /> },
 ]);

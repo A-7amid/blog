@@ -17,25 +17,42 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState(dummyUsers);
-  const [err, setErr] = useState("");
+  const [isInvalidEmail, setIsInvalidEmail] = useState("");
 
   const handleAddUser = useCallback(
     (newUser) => {
-      users.map((user) => {
-        if (user.email === newUser.email) {
-          setErr("email");
-        }
-      });
-      // if(newUser.password != )
+      users.map(
+        (user) => user.email === newUser.email && setIsInvalidEmail("email")
+      );
 
       setUsers((prev) => [...prev, newUser]);
+      console.log(users);
     },
-    [setUsers]
+    [users, setUsers]
+  );
+
+  const handleLogin = useCallback(
+    (loginUser) => {
+      users.map((user) => {
+        if (user.email !== loginUser.email) {
+          setIsInvalidEmail(true);
+          console.log("not done");
+          return;
+        } else if (
+          user.email === loginUser.email &&
+          user.password === loginUser.password
+        ) {
+          console.log("done");
+          return;
+        }
+      });
+    },
+    [users]
   );
 
   const values = useMemo(
-    () => ({ users, setUsers, handleAddUser }),
-    [users, handleAddUser]
+    () => ({ users, setUsers, handleAddUser, isInvalidEmail, handleLogin }),
+    [users, handleAddUser, isInvalidEmail, handleLogin]
   );
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

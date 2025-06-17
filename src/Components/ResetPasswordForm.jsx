@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const ResetPasswordForm = () => {
   const [passwordType, setPasswordType] = useState("password");
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
 
   return (
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
@@ -76,7 +76,10 @@ export const ResetPasswordForm = () => {
 
               <div className="w-full flex items-center justify-center font-[500] gap-1 text-sm">
                 <span>Remember your password? </span>
-                <Link to="/login" className="hover:underline ">
+                <Link
+                  to="/login"
+                  className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150"
+                >
                   Back to login
                 </Link>
               </div>

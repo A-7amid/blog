@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { CustomCheckbox } from "./CustomCheckbox";
 import { useState } from "react";
+import { useAuth } from "../context/authentication.context";
 
 export const LoginForm = () => {
+  const { isInvalidEmail, handleLogin } = useAuth();
   const [passwordType, setPasswordType] = useState("password");
 
   const {
@@ -13,15 +15,13 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   return (
     <div className="flex flex-1 h-full items-center justify-center font-sans bg-slate-50">
       <form
         className="border -translate-y-15 border-black/10 w-[26%] rounded-md px-6 py-4 bg-white"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((data) => {
+          handleLogin(data);
+        })}
       >
         <div className="flex flex-col gap-y-6">
           <div className="flex flex-col items-center justify-center gap-1">
@@ -39,6 +39,10 @@ export const LoginForm = () => {
               >
                 Email
               </label>
+
+              {isInvalidEmail && (
+                <div className="text-red-500 text-sm -mt-1">Invalid Email</div>
+              )}
               <input
                 id="email"
                 type="email"
@@ -57,7 +61,7 @@ export const LoginForm = () => {
                 </label>
                 <Link
                   to="/password_reset"
-                  className="text-zinc-500 text-sm font-[500] hover:text-black transition duration-150 cursor-pointer"
+                  className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150 text-sm font-[500]"
                 >
                   Forgot password?
                 </Link>
@@ -94,9 +98,12 @@ export const LoginForm = () => {
               Sign in
             </button>
 
-            <div className="w-full flex items-center justify-center font-[500] gap-1 text-sm">
+            <div className="w-full flex items-center justify-center gap-1 text-sm">
               <span>Don&apos;t have an account? </span>
-              <Link to="/signup" className="hover:underline ">
+              <Link
+                to="/signup"
+                className="text-blue-600 underline cursor-pointer hover:text-blue-700 transition duration-150"
+              >
                 Sign up
               </Link>
             </div>
