@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isInvalidEmail, setIsInvalidEmail] = useState(false);
 
-  const navigate = "fdas";
+  const navigate = useNavigate();
 
   const handleAddUser = useCallback(
     (newUser) => {
@@ -31,8 +31,9 @@ export const AuthProvider = ({ children }) => {
 
       setUsers((prev) => [...prev, newUser]);
       console.log(users);
+      navigate("/");
     },
-    [users, setUsers]
+    [users, setUsers, navigate]
   );
 
   const handleLogin = useCallback(
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
       }
       setIsInvalidEmail(false);
       console.log("login seccessfull");
-      navigate("");
+      navigate("/");
     },
     [users, navigate]
   );
@@ -67,6 +68,7 @@ export const AuthProvider = ({ children }) => {
       setIsSuccess(true);
       setIsInvalidEmail(false);
       console.log("login seccessfull");
+      navigate("/");
 
       users.find((user) => {
         user.email === email ? (user.password = newPassword) : "";
@@ -77,7 +79,7 @@ export const AuthProvider = ({ children }) => {
       // console.log(email);
       // setIsSuccess(true);
     },
-    [users]
+    [users, navigate]
   );
 
   const values = useMemo(
