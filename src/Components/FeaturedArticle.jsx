@@ -8,9 +8,13 @@ const FeaturedArticle = () => {
   return (
     !isFilter && (
       <header className="flex flex-col lg:w-[90%] xl:w-[80%]">
-        <h3 className="text-2xl font-bold roboto-mono mt-6 my-4">
-          Featured Article
+        <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
+          Featured Story
         </h3>
+
+        <span className="text-xl font-[400] text-gray-500 text-center mb-8">
+          Handpicked by our editorial team
+        </span>
 
         <div className="flex flex-col lg:flex-row border-2 border-opacity-10 rounded-lg">
           <div className="relative lg:hidden rounded-t-lg overflow-hidden items-center justify-center h-[220px]">
@@ -30,7 +34,7 @@ const FeaturedArticle = () => {
           </div>
 
           <div className="flex flex-col mt-5 lg:mt-3 cursor-default mx-5 text-zinc-600">
-            <div className="flex gap-x-1 opacity-80 mb-4 text-blue-600 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
+            <div className="flex gap-x-1 opacity-80 mb-4 text-blue-700 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
               <span>In</span>
               <span className="flex font-medium hover:underline">{`React JS`}</span>
               <span>by</span>

@@ -42,6 +42,9 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+
+  --color-primary: #1c50d5;
+  --color-primary2: #18a2b7;
 }
 
 /*
