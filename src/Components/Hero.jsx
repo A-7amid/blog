@@ -2,6 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { ArrowRight } from "lucide-react";
 import numeral from "numeral";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -50,9 +51,12 @@ export const Hero = () => {
       </p>
 
       <div className="flex gap-4 mt-8">
-        <button className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-4 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-8 py-2 text-lg text-white ">
+        <Link
+          to="/create-post"
+          className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-4 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-8 py-2 text-lg text-white "
+        >
           Start Your Journy <ArrowRight size={17} />
-        </button>
+        </Link>
 
         <button className="border bg-white cursor-pointer rounded-md px-8 py-2 text-lg font-[500]">
           Explore Articles

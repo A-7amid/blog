@@ -1,4 +1,4 @@
-import { Heart, MessageCircle } from "lucide-react";
+import { ArrowRight, Heart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePosts } from "../context/posts.context";
 
@@ -7,7 +7,7 @@ const FeaturedArticle = () => {
 
   return (
     !isFilter && (
-      <header className="flex flex-col lg:w-[90%] xl:w-[80%]">
+      <header className="flex flex-col lg:w-[90%] xl:w-[80%] mb-12">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Featured Story
         </h3>
@@ -29,7 +29,7 @@ const FeaturedArticle = () => {
             <img
               src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
               alt="image topic"
-              className="hidden lg:flex h-full w-full rounded-l-lg"
+              className="hidden lg:flex lg:w-[1500px] h-full w-full rounded-l-lg"
             />
           </div>
 
@@ -44,13 +44,13 @@ const FeaturedArticle = () => {
               to="/post-tobi"
               className="text-2xl text-black font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
             >
-              Latest Advancements in Artificial Intelligence
+              The Revolutionary Impact of AI on Modern Development
             </Link>
-            <p className="text-black opacity-55 font-medium text-sm tracking-wide cursor-text mb-7">
-              Explore with us the latest developments in the world of AI and
-              their impact on our daily lives. From machine learning
-              breakthroughs to ethical considerations, discover how artificial
-              intelligence is reshaping our future.
+            <p className="text-black opacity-55 font-medium text-md tracking-wide cursor-text mb-7">
+              Discover how artificial intelligence is transforming the way we
+              build software, from automated code generation to intelligent
+              debugging. This comprehensive guide explores the tools and
+              techniques that are reshaping our industry.
             </p>
             <div className="flex flex-row items-center gap-2 select-none h-full pb-6">
               <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
@@ -65,9 +65,11 @@ const FeaturedArticle = () => {
               <div className="flex justify-end w-full mr-5">
                 <Link
                   to="/post-tobi"
-                  className="text-gray-100 bg-gray-800 hover:bg-gray-700 duration-150 transition rounded-md px-4 py-2 text-xs cursor-pointer"
+                  className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-4 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-4 py-2 text-md text-white"
+                  // className="text-gray-100 bg-gray-800 hover:bg-gray-700 duration-150 transition rounded-md px-4 py-2 text-xs cursor-pointer"
                 >
-                  Read More
+                  Read Full Story
+                  <ArrowRight size={17} />
                 </Link>
               </div>
             </div>

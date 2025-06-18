@@ -59,7 +59,7 @@ const Navbar = ({ searchable = false }) => {
   };
 
   return (
-    <nav className="border-b">
+    <nav className="bg-white shadow-xs border-b border-zinc-200 w-full top-0 left-0 z-50  backdrop-filter backdrop-blur-lg">
       <div className="flex items-center container mx-auto px-4 py-3 sm:mt-0 justify-between">
         <Link to="/">
           <h3 className="font-extrabold text-3xl opacity-80 marck-font">
@@ -101,23 +101,23 @@ const Navbar = ({ searchable = false }) => {
         </div>
 
         <div className="hidden md:flex gap-x-3">
-          <MakePost />
           <div className="gap-x-3 hidden sm:flex">
             <Link
               to="/login"
-              className="rounded-lg text-nowrap flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-slate-100 duration-200 transition-all"
+              className="rounded-lg text-nowrap flex justify-center items-center py-2 px-3 gap-x-3 hover:bg-slate-100 text-[#232A37] hover:text-black duration-200 transition-all"
             >
-              <LogOut size={15} strokeWidth={3} />
+              <LogOut size={15} strokeWidth={2} />
               <span className="text-sm">Log In</span>
             </Link>
-            <Link
+            {/* <Link
               to="/signup"
               className="border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all"
             >
               <UserPlus size={16} strokeWidth={3} />
               <span className="text-sm">Sign Up</span>
-            </Link>
+            </Link> */}
           </div>
+          <MakePost />
         </div>
 
         {/* Phone Design */}
@@ -192,13 +192,14 @@ const MakePost = ({ className }) => {
   return (
     <Link
       to="/create-post"
-      className={cn(
-        "flex gap-3 bg-black/85 hover:bg-black/75 text-white text-nowrap justify-center items-center w-full lg:hover:underline font-medium px-4 py-2 duration-200 transition-all hover:no-underline text-sm rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black ",
-        className
-      )}
+      // className={cn(
+      //   "flex gap-3 bg-black/85 hover:bg-black/75 text-white text-nowrap justify-center items-center w-full lg:hover:underline font-medium px-4 py-2 duration-200 transition-all hover:no-underline text-sm rounded-md lg:hover:text-white lg:text-black border-black border-2 lg:bg-transparent lg:hover:bg-black ",
+      //   className
+      // )}
+      className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-3 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-4 py-2 text-sm text-white"
     >
       <NotebookPen size={16} />
-      Create Post
+      Start Writing
     </Link>
   );
 };
