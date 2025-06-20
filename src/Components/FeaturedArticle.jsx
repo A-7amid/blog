@@ -7,7 +7,7 @@ const FeaturedArticle = () => {
 
   return (
     !isFilter && (
-      <header className="flex flex-col lg:w-[90%] xl:w-[80%] mb-12">
+      <header className="flex flex-col lg:w-[90%] xl:w-[100%] mx-auto container mb-12 -translate-y-14 bg-white rounded-3xl shadow-lg">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Featured Story
         </h3>
@@ -16,7 +16,7 @@ const FeaturedArticle = () => {
           Handpicked by our editorial team
         </span>
 
-        <div className="flex flex-col lg:flex-row border-2 border-opacity-10 rounded-lg">
+        <div className="flex flex-col lg:flex-row mt-8">
           <div className="relative lg:hidden rounded-t-lg overflow-hidden items-center justify-center h-[220px]">
             <img
               src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"

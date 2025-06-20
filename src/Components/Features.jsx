@@ -1,40 +1,74 @@
-import { Zap } from "lucide-react";
+import { Award, Users, Zap } from "lucide-react";
+import { cn } from "../utils/clsx";
 
 export const Features = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <div className="flex flex-col mb-7">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Why Choose VoxOmnia?
         </h3>
 
-        <span className="text-xl font-[400] text-gray-500 text-center mb-8">
+        <span className="text-xl font-[400] text-gray-500 text-center mb-10">
           Everything you need to share your expertise with the world
         </span>
       </div>
 
-      <div className="grid grid-cols-3">
-        <Card />
+      <div className="flex w-[84%] items-center justify-center gap-5 mb-32">
+        <Card
+          color="zap"
+          className="hover:bg-primary/5"
+          icon={<Zap size={34} color="white" />}
+          header="Lightning Fast"
+          description="Optimized for speed with instant loading and seamless navigation"
+        />
+
+        <Card
+          color="users"
+          className="hover:bg-[#13B8AB]/8"
+          icon={<Users size={34} color="white" />}
+          header="Global Community"
+          description="Connect with developers and creators from around the world"
+        />
+        <Card
+          color="award"
+          className="hover:bg-[#F97118]/8"
+          icon={<Award size={34} color="white" />}
+          header="Recognition"
+          description="Get recognized for your contributions with our reward system"
+        />
       </div>
     </div>
   );
 };
 
-const Card = ({ header, description }) => {
-  return (
-    <div className="flex flex-col select-none hover:bg-[#EFF6FF] transition items-center justify-center duration-200 group">
-      <div className="flex items-center shadow-2xl w-fit justify-center cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] group-hover:scale-110 transition duration-100 py-4 px-4 bg-gradient-to-r from-primary to-[#00b1a8] rounded-xl  text-md text-white">
-        <Zap size={34} color="white" />
-      </div>
+const Card = ({ color, icon, header, description, className }) => {
+  const colors = {
+    zap: "from-primary to-[#00b1a8]",
+    users: "from-[#13B8AB] to-[#06B6D1]",
+    award: "from-[#F97118] to-[#F04940]",
+  };
 
-      <h3 className="text-xl font-bold text-center roboto-mono mt-6 mb-4">
-        Lightning Fast
+  return (
+    <div
+      className={cn(
+        `flex flex-col h-full select-none hover:[${colors[color]}] transition items-center justify-center duration-400 rounded-lg group p-6`,
+        className
+      )}
+    >
+      <div
+        className={cn(
+          "flex items-center shadow-2xl transa w-fit justify-center group-hover:scale-107 transition duration-100 py-4 px-4 bg-gradient-to-r rounded-2xl",
+          colors[color]
+        )}
+      >
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold text-center roboto-mono mt-4 mb-2">
+        {header}
       </h3>
 
-      <span className="text-md text-gray-500 text-center text-pretty">
-        Everything you Optimized for speed with instant loading and seamless
-        navigation to share your expertise with the world
-      </span>
+      <span className="text-md text-gray-500 text-center ">{description}</span>
     </div>
   );
 };

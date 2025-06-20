@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { usePosts } from "../context/posts.context";
 import {
   AlignJustify,
+  BookOpen,
   LogOut,
   NotebookPen,
   Search,
@@ -62,7 +63,10 @@ const Navbar = ({ searchable = false }) => {
     <nav className="bg-white shadow-xs border-b border-zinc-200 w-full top-0 left-0 z-50  backdrop-filter backdrop-blur-lg">
       <div className="flex items-center container mx-auto px-4 py-3 sm:mt-0 justify-between">
         <Link to="/">
-          <h3 className="font-extrabold text-3xl opacity-80 marck-font">
+          <h3 className="flex gap-3 items-center font-extrabold text-3xl opacity-80 marck-font">
+            <div className="flex items-center shadow-2xl bg-gradient-to-r from-primary to-[#00b1a8] rounded-xl px-2 py-1.5 text-md text-white">
+              <BookOpen size={20} />
+            </div>
             VoxOmnia
           </h3>
         </Link>
