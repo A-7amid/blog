@@ -5,9 +5,10 @@ import { usePosts } from "./context/posts.context";
 import Navbar from "./Components/Navbar";
 import { Hero } from "./Components/Hero";
 import { Features } from "./Components/Features";
+import { Community } from "./Components/Community";
 
 const App = () => {
-  const { isFilter } = usePosts();
+  // const { isFilter } = usePosts();
   return (
     <div className="min-h-screen max-h-full flex flex-col roboto-mono">
       <Navbar searchable={true} />
@@ -17,6 +18,8 @@ const App = () => {
         <Posts />
         <Features />
       </div>
+
+      <Community />
       <Footer />
     </div>
   );

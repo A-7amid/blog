@@ -1,52 +1,57 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { BookOpen, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-t">
-      <div className="pt-8 p-5 mx-auto container grid grid-cols-1 gap-y-8 sm:grid-cols-2 md:grid-cols-3">
+    <footer className="bg-[#111827] text-secondary">
+      <div className="pt-18 pb-12 w-7xl mx-auto container grid grid-cols-4 justify-center border-b border-[#1F2937]">
         <div className="flex flex-col">
-          <Link to="/" className="text-lg font-bold">
+          <h3 className="flex gap-3 items-center text-white font-extrabold text-3xl opacity-80 marck-font">
+            <div className="flex items-center shadow-2xl bg-gradient-to-r from-primary to-[#00b1a8] rounded-lg px-2 py-1.5 text-md">
+              <BookOpen size={20} />
+            </div>
             VoxOmnia
-          </Link>
+          </h3>
 
-          <span className="w-fit pr-6 flex mt-4 text-slate-500 text-sm items-center">
-            A modern blog offering diverse content in technology, culture, and
-            art.
+          <span className="w-fit pr-6 flex mt-4 text-sm items-center">
+            Empowering voices, building communities, shaping the future of
+            knowledge sharing.
           </span>
         </div>
 
-        <div className="flex flex-col items-center">
-          <h3 className="font-semibold text-lg">Quick Links</h3>
-
-          <div className="flex flex-col mt-4 text-md items-center">
-            <Link to="/">Home</Link>
-            <Link to="/">About Us</Link>
-            <Link to="/">Contact</Link>
-            <Link to="/">Privacy Policy</Link>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-white text-lg font-semibold">Platform</h3>
+          <div className="flex flex-col gap-2">
+            <span>Write</span>
+            <span>Read</span>
+            <span>Community</span>
+            <span>Analytics</span>
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
-          <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            <Link to="/">
-              <Facebook size={20} />
-            </Link>
-            <Link to="/">
-              <Twitter size={20} />
-            </Link>
-            <Link to="/">
-              <Instagram size={20} />
-            </Link>
-            <Link to="/">
-              <Linkedin size={20} />
-            </Link>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-white text-lg font-semibold">Resources</h3>
+          <div className="flex flex-col gap-2">
+            <span>Help Center</span>
+            <span>Writing Guide</span>
+            <span>API</span>
+            <span>Blog</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <h3 className="text-white text-lg font-semibold">Platform</h3>
+          <div className="flex flex-col gap-2">
+            <span>About</span>
+            <span>Careers</span>
+            <span>Privacy</span>
+            <span>Terms</span>
           </div>
         </div>
       </div>
-      <span className="flex w-full justify-center my-3 mb-7 font-semibold text-slate-500 text-xs">
-        &copy; 2025 VoxOmnia. All rights reserved.
+      <span className="flex w-full justify-center mt-10 mb-18">
+        &copy; 2025 VoxOmnia. All rights reserved. Built with ❤️ for creators
+        worldwide.
       </span>
     </footer>
   );
