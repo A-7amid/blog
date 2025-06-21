@@ -7,19 +7,19 @@ import { Link } from "react-router-dom";
 const data = [
   {
     title: "Active Writers",
-    number: 20000,
+    number: 50000,
   },
   {
     title: "Articles Published",
-    number: 1100000,
+    number: 2000000,
   },
   {
     title: "Monthly Readers",
-    number: 7200000,
+    number: 1000000,
   },
   {
     title: "Countries",
-    number: 60,
+    number: 150,
   },
 ];
 

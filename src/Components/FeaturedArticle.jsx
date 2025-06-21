@@ -64,7 +64,7 @@ const FeaturedArticle = () => {
                 <span>89</span>
               </div>
 
-              <div className="flex justify-end w-full mr-5">
+              <div className="flex justify-end w-full">
                 <Link
                   to="/post-tobi"
                   className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-4 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-4 py-2 text-md text-white"
