@@ -1,4 +1,4 @@
-import { Heart, MessageCircle } from "lucide-react";
+import { ArrowRight, Heart, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 const names = [
   "Jane Smith",
@@ -31,62 +31,59 @@ const Post = ({
   category,
 }) => {
   return (
-    <div className="flex hover:shadow-md shadow-xs duration-100 border border-opacity-10 rounded-md sm:-space-x-20">
-      <div className="flex flex-col">
-        <div className="flex sm:w-full">
+    <div className="flex hover:shadow-2xl shadow-md group hover:-translate-y-2 duration-400 border border-opacity-10 rounded-md sm:-space-x-20 h-[450px]">
+      <div className="flex flex-col h-full w-full gap-3">
+        <div className="flex sm:w-full relative overflow-hidden">
+          <span className="border border-white/50 hover:border-white/30 bg-white/10 hover:bg-black/70 transition duration-200 font-bold text-white px-3 py-0.5 text-xs rounded-4xl absolute top-3 left-2">
+            🔥 Trending
+          </span>
           <img
             src={img}
-            alt="post image"
+            alt="article image"
             className="
        flex grow rounded-t-md"
           />
         </div>
-        <div className="px-4 pt-2 flex flex-col cursor-default text-zinc-600">
-          <div className="flex gap-x-1 opacity-80 mb-2.5 mt-2.5 text-black bg-gray-200 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
-            <span>In</span>
+        <div className="flex flex-col px-7 grow mt-4">
+          <div className="flex opacity-80 mb-3 text-black bg-gray-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
             <span className="flex font-medium hover:underline capitalize">
               {category}
             </span>
-            <span>by</span>
             <span className="flex font-medium hover:underline">
-              {userName || names[Math.round(Math.random() * names.length)]}
+              by {userName || names[Math.round(Math.random() * names.length)]}
             </span>
           </div>
           {/* text-2xl font-bold w-fit mb-4 hover:text-blue-700 duration-200 cursor-pointer */}
           <Link
             to={`/post/${title}`}
-            className="font-bold text-lg text-black opacity-85 mb-3 hover:text-blue-800 duration-200 cursor-pointer"
+            className="font-bold text-lg text-black opacity-85 mb-3 group-hover:text-blue-800 duration-200 cursor-pointer w-fit"
           >
             {title}
           </Link>
 
-          <p className="text-sm mb-5 cursor-text">{content}</p>
+          <p className="text-sm mb-5 text-zinc-600 flex text-wrap">{content}</p>
 
-          <div className="flex items-center gap-x-2.5">
-            <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
+          <div className="h-px bg-gray-100 w-full"></div>
+
+          <div className="flex items-center gap-x-2.5 h-full">
+            <div className="flex items-center gap-1 hover:text-red-600 transition duration-200">
               <Heart strokeWidth={2.5} size={16} />
               <span className="text-xs">{likes || "120"}</span>
             </div>
-            <div className="flex items-center gap-1 hover:text-black cursor-pointer transition duration-200">
+            <div className="flex items-center gap-1 hover:text-black transition duration-200">
               <MessageCircle size={16} />
               <span className="text-xs">{comments || "13"}</span>
             </div>
-            <div className="flex justify-end w-full">
-              <Link
-                to={`/post/${title}`}
-                className="cursor-pointer text-black text-xs px-3 py-1.5 hover:bg-gray-100 rounded-sm duration-75 ease-out font-semibold"
-              >
-                Read More
-              </Link>
-            </div>
+            <Link
+              to={`/post/${title}`}
+              className="cursor-pointer text-blue-600 flex gap-2 items-center px-3 py-1.5 hover:bg-gray-50 duration-75 ease-out font-semibold"
+            >
+              Read More <ArrowRight size={17} />
+            </Link>
           </div>
+
+          {/* <span className="text-sm text-black cursor-text">{date}</span> */}
         </div>
-
-        <div className="h-px bg-gray-200 w-full mt-3"></div>
-
-        <span className="text-sm text-black px-7 py-3.5 cursor-text">
-          {date}
-        </span>
       </div>
     </div>
   );

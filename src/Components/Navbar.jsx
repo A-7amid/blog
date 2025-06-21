@@ -7,6 +7,7 @@ import {
   LogOut,
   NotebookPen,
   Search,
+  SquarePen,
   UserPlus,
   X,
 } from "lucide-react";
@@ -60,7 +61,7 @@ const Navbar = ({ searchable = false }) => {
   };
 
   return (
-    <nav className="bg-white shadow-xs border-b border-zinc-200 w-full top-0 left-0 z-50  backdrop-filter backdrop-blur-lg">
+    <nav className="bg-white/85 shadow-xs border-b border-zinc-200 w-full top-0 left-0 z-50 fixed backdrop-blur-lg">
       <div className="flex items-center container mx-auto px-4 py-3 sm:mt-0 justify-between">
         <Link to="/">
           <h3 className="flex gap-3 items-center font-extrabold text-3xl opacity-80 marck-font">
@@ -70,38 +71,67 @@ const Navbar = ({ searchable = false }) => {
             VoxOmnia
           </h3>
         </Link>
+
         <div
-          className={cn(
-            "focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:-mr-24 md:flex shadow-xs hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md",
-            { "md:hidden px-3": !searchable }
-          )}
+          className={cn("flex items-center gap-8", {
+            "md:hidden px-3": !searchable,
+          })}
         >
-          <div className="flex items-cetner gap-x-1 lg:grow">
-            <Search
-              size={16}
-              strokeWidth={2.7}
-              className="opacity-60 mt-[3px] mr-2"
-            />
-            <input
-              value={inputValue}
-              ref={searchInputRef}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Search"
-              className="outline-hidden w-24 lg:grow placeholder-opacity-50 placeholder:font-semibold"
-            />
-            {isShown && (
-              <X
-                size={15}
-                strokeWidth={3}
-                onClick={handleDelete}
-                className="stroke-blue-500 hover:stroke-blue-600 cursor-pointer mt-1 mr-0.5"
-              />
-            )}
+          <div className="flex items-center gap-8">
+            <a
+              href="#features"
+              className="text-black/75 hover:text-blue-600 text-[17px] font-[460] transition duration-400 cursor-pointer"
+            >
+              Features
+            </a>
+
+            <a
+              href="#articles"
+              className="text-black/75 hover:text-blue-600 text-[17px] font-[460] transition duration-400 cursor-pointer"
+            >
+              Articles
+            </a>
+
+            <a
+              href="#community"
+              className="text-black/75 hover:text-blue-600 text-[17px] font-[460] transition duration-400 cursor-pointer"
+            >
+              Community
+            </a>
           </div>
-          <span className="hidden md:flex items-center text-nowrap opacity-60 font-bold text-sm">
-            Ctrl K
-          </span>
+
+          <div
+            className={cn(
+              "focus:outline-blue-600 px-3 w-fit hidden justify-between items-center lg:w-96 lg:mr-24 md:flex shadow-xs hover:shadow-md border border-gray-300 duration-300 outline-slate-300 mx-2 font-normal py-[6px] rounded-md"
+            )}
+          >
+            <div className="flex items-cetner gap-x-1 lg:grow">
+              <Search
+                size={16}
+                strokeWidth={2.7}
+                className="opacity-60 mt-[3px] mr-2"
+              />
+              <input
+                value={inputValue}
+                ref={searchInputRef}
+                onChange={handleInputChange}
+                type="text"
+                placeholder="Search"
+                className="outline-hidden w-24 lg:grow placeholder-opacity-50 placeholder:font-semibold"
+              />
+              {isShown && (
+                <X
+                  size={15}
+                  strokeWidth={3}
+                  onClick={handleDelete}
+                  className="stroke-blue-500 hover:stroke-blue-600 cursor-pointer mt-1 mr-0.5"
+                />
+              )}
+            </div>
+            <span className="hidden md:flex items-center text-nowrap opacity-60 font-bold text-sm">
+              Ctrl K
+            </span>
+          </div>
         </div>
 
         <div className="hidden md:flex gap-x-3">
@@ -113,13 +143,16 @@ const Navbar = ({ searchable = false }) => {
               <LogOut size={15} strokeWidth={2} />
               <span className="text-sm">Log In</span>
             </Link>
-            {/* <Link
+            <Link
               to="/signup"
-              className="border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all"
+              className={cn(
+                "border-2 text-nowrap gap-x-3 border-opacity-15 text-white bg-black rounded-lg flex justify-center items-center px-3 hover:bg-gray-900 duration-200 transition-all",
+                { "md:hidden px-3": searchable }
+              )}
             >
               <UserPlus size={16} strokeWidth={3} />
               <span className="text-sm">Sign Up</span>
-            </Link> */}
+            </Link>
           </div>
           <MakePost />
         </div>
@@ -202,7 +235,7 @@ const MakePost = ({ className }) => {
       // )}
       className="flex items-center shadow-2xl cursor-pointer hover:from-[#1b47b7] hover:to-[#05968f] gap-3 bg-gradient-to-r from-primary to-[#00b1a8] rounded-md px-4 py-2 text-sm text-white"
     >
-      <NotebookPen size={16} />
+      <SquarePen size={16} />
       Start Writing
     </Link>
   );

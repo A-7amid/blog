@@ -6,7 +6,7 @@ const Posts = () => {
   const { posts } = usePosts();
 
   return (
-    <div>
+    <section id="articles" className="w-[1220px]">
       <div className="flex flex-col gap- mb-7">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Latest Articles
@@ -17,7 +17,7 @@ const Posts = () => {
         </span>
       </div>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-6 sm:mt-2">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-3 gap-6 sm:mt-2">
         {posts.length > 1 &&
           posts.map((post, index) => (
             <Post
@@ -25,7 +25,7 @@ const Posts = () => {
               title={post.title}
               date={post.date}
               img={post.img}
-              content={post.content.slice(0, 50)}
+              content={post.content.slice(0, 130)}
               likes={post.likes}
               comments={post.comments}
               userName={post.userName}
@@ -47,7 +47,7 @@ const Posts = () => {
           <ArrowRight size={17} />
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

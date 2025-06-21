@@ -7,7 +7,7 @@ const FeaturedArticle = () => {
 
   return (
     !isFilter && (
-      <header className="flex flex-col lg:w-[90%] xl:w-[100%] mx-auto container mb-12 -translate-y-14 bg-white rounded-3xl shadow-lg">
+      <header className="flex flex-col lg:w-[90%] xl:w-[80%] mx-auto container mb-12 -translate-y-14">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Featured Story
         </h3>
@@ -16,7 +16,7 @@ const FeaturedArticle = () => {
           Handpicked by our editorial team
         </span>
 
-        <div className="flex flex-col lg:flex-row mt-8">
+        <div className="flex flex-col lg:flex-row mt-8 bg-white rounded-lg shadow-2xl">
           <div className="relative lg:hidden rounded-t-lg overflow-hidden items-center justify-center h-[220px]">
             <img
               src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
@@ -26,40 +26,42 @@ const FeaturedArticle = () => {
           </div>
 
           <div className="relative">
+            <span className="border border-white/50 hover:border-white/30 bg-white/20 hover:bg-black/90 transition duration-200 font-bold text-white px-3 py-0.5 text-xs rounded-4xl absolute top-5 left-2">
+              🔥 Trending
+            </span>
             <img
               src="https://online.keele.ac.uk/wp-content/uploads/2024/05/AI-Developments.jpg"
               alt="image topic"
-              className="hidden lg:flex lg:w-[1500px] h-full w-full rounded-l-lg"
+              className="hidden lg:flex lg:w-[2300px] h-full w-full rounded-l-lg"
             />
           </div>
 
-          <div className="flex flex-col mt-5 lg:mt-3 cursor-default mx-5 text-zinc-600">
-            <div className="flex gap-x-1 opacity-80 mb-4 text-blue-700 bg-blue-100 w-fit rounded-2xl text-xs font-semibold px-3.5 py-1">
-              <span>In</span>
-              <span className="flex font-medium hover:underline">{`React JS`}</span>
-              <span>by</span>
-              <span className="flex font-medium hover:underline">{`Tobi`}</span>
+          <div className="flex flex-col mt-5 lg:mt-3 cursor-default mx-12 py-8 text-zinc-600">
+            <div className="flex hover:bg-blue-50 transition duration-200 gap-x-1 opacity-80 mb-4 text-blue-700 bg-blue-100 w-fit rounded-xl text-xs font-semibold px-3 py-1">
+              <span className="flex font-medium hover:underline">{`AI & Technology`}</span>
+              <span>• by</span>
+              <span className="flex font-medium hover:underline">{`Sarah Chen`}</span>
             </div>
             <Link
               to="/post-tobi"
-              className="text-2xl text-black font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
+              className="text-3xl text-black font-bold w-fit mb-4 hover:text-blue-800 duration-200 cursor-pointer"
             >
               The Revolutionary Impact of AI on Modern Development
             </Link>
-            <p className="text-black opacity-55 font-medium text-md tracking-wide cursor-text mb-7">
+            <p className="text-gray-600 text-lg tracking-wide cursor-text mb-7">
               Discover how artificial intelligence is transforming the way we
               build software, from automated code generation to intelligent
               debugging. This comprehensive guide explores the tools and
               techniques that are reshaping our industry.
             </p>
-            <div className="flex flex-row items-center gap-2 select-none h-full pb-6">
-              <div className="flex items-center gap-1 hover:text-red-600 cursor-pointer transition duration-200">
-                <Heart strokeWidth={2.5} size={16} />
-                <span className="text-xs">120</span>
+            <div className="flex flex-row items-center text-gray-600 gap-5 select-none h-full ">
+              <div className="flex items-center gap-2">
+                <Heart color="red" size={21} />
+                <span>1.2K</span>
               </div>
-              <div className="flex items-center gap-1 hover:text-black cursor-pointer transition duration-200">
-                <MessageCircle size={16} />
-                <span className="text-xs">17</span>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="stroke-blue-400" size={22} />
+                <span>89</span>
               </div>
 
               <div className="flex justify-end w-full mr-5">

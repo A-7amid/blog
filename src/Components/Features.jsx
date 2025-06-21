@@ -3,7 +3,7 @@ import { cn } from "../utils/clsx";
 
 export const Features = () => {
   return (
-    <div className="flex flex-col items-center">
+    <section id="features" className="flex flex-col items-center mt-16">
       <div className="flex flex-col mb-7">
         <h3 className="text-4xl font-bold text-center roboto-mono mt-6 mb-4">
           Why Choose VoxOmnia?
@@ -14,7 +14,7 @@ export const Features = () => {
         </span>
       </div>
 
-      <div className="flex w-[84%] items-center justify-center gap-5 mb-32">
+      <div className="flex w-[84%] items-center justify-center gap-5 mb-10">
         <Card
           color="zap"
           className="hover:bg-primary/5"
@@ -38,7 +38,7 @@ export const Features = () => {
           description="Get recognized for your contributions with our reward system"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

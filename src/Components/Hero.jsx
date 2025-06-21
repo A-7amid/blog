@@ -32,10 +32,10 @@ export const Hero = () => {
   return (
     <header
       data-aos="fade-up"
-      className="flex flex-col w-full  items-center justify-center pt-24 mx-auto text-center pb-52"
+      className="flex flex-col w-full  items-center justify-center pt-32 mx-auto text-center pb-52"
     >
       {/* bg-gradient-to-b from-slate-100 to-slate-200 */}
-      <span className="rounded-3xl text-primary text-sm bg-[#DBEAFE] py-2 px-3.5 hover:bg-[#F3F5F6]">
+      <span className="rounded-3xl text-primary text-xs font-[460] bg-[#DBEAFE] py-2 px-3.5 hover:bg-[#F3F5F6]">
         ✨ Join 50K+ Writers Worldwide
       </span>
       <h1 className="text-7xl mt-4 font-bold flex flex-col tracking-wider text-center">
@@ -45,7 +45,7 @@ export const Hero = () => {
         </span>
       </h1>
 
-      <p className="text-center text-gray-500 text-2xl mt-4 mx-auto max-w-3xl text-pretty">
+      <p className="text-center text-gray-700 text-2xl mt-4 mx-auto max-w-3xl text-pretty">
         The premier platform where developers, creators, and innovators share
         knowledge, build communities, and inspire the next generation of digital
         pioneers.
@@ -64,7 +64,7 @@ export const Hero = () => {
         </button>
       </div>
 
-      <div className="flex justify-between items-center mt-15 w-[1070px]">
+      <div className="flex justify-between items-center mt-20 w-[1040px]">
         {data.map((card) => (
           <div key={card.title}>
             <h4 className="text-3xl font-bold uppercase">
