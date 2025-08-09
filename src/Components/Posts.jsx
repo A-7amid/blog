@@ -35,7 +35,9 @@ const Posts = () => {
       </section>
 
       {posts.length === 0 && (
-        <div className="font-semibold flex mt-5">No results found.</div>
+        <div className="font-semibold items-center justify-center flex mt-5">
+          No results found.
+        </div>
       )}
 
       <div className="flex items-center justify-center">

@@ -61,9 +61,9 @@ const Post = ({
         <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-purple-500 text-white px-3 py-1 text-xs rounded-full shadow-md font-semibold tracking-wide">
           {trendingLabels[Math.floor(Math.random() * trendingLabels.length)]}
         </span>
-        <span className="absolute top-4 right-4 bg-white/80 text-blue-700 px-2 py-0.5 text-xs rounded-full font-medium shadow">
+        {/* <span className="absolute top-4 right-4 bg-white/80 text-blue-700 px-2 py-0.5 text-xs rounded-full font-medium shadow">
           {date}
-        </span>
+        </span> */}
       </div>
       <div className="flex flex-col grow px-7 py-5">
         <div className="flex flex-col gap-1">
@@ -97,7 +97,7 @@ const Post = ({
           </div>
           <Link
             to={`/post/${title}`}
-            className="cursor-pointer text-white bg-gradient-to-r from-blue-600 to-purple-500 flex gap-2 items-center px-4 py-2 rounded-full shadow hover:from-blue-700 hover:to-purple-600 transition-all font-semibold text-sm"
+            className="cursor-pointer text-blue-600 flex gap-2 items-center px-2 py-1 hover:bg-gray-100 rounded-md transition-all font-semibold text-sm"
           >
             Read More <ArrowRight size={17} />
           </Link>

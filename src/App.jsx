@@ -1,14 +1,16 @@
 import Posts from "./Components/Posts";
 import FeaturedArticle from "./Components/FeaturedArticle";
 import Footer from "./Components/Footer";
-import { usePosts } from "./context/posts.context";
+// import { usePosts } from "./context/posts.context";
 import Navbar from "./Components/Navbar";
 import { Hero } from "./Components/Hero";
 import { Features } from "./Components/Features";
 import { Community } from "./Components/Community";
+import { ScrollButton } from "./Components/ScrollButton";
 
 const App = () => {
   // const { isFilter } = usePosts();
+
   return (
     <div className="min-h-screen max-h-full flex flex-col roboto-mono">
       <Navbar searchable={true} />
@@ -18,9 +20,9 @@ const App = () => {
         <Posts />
         <Features />
       </div>
-
       <Community />
       <Footer />
+      {/* <ScrollButton /> */}
     </div>
   );
 };
